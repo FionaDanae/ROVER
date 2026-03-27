@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing rover_vision.egg-info/PKG-INFO
+writing dependency_links to rover_vision.egg-info/dependency_links.txt
+writing entry points to rover_vision.egg-info/entry_points.txt
+writing requirements to rover_vision.egg-info/requires.txt
+writing top-level names to rover_vision.egg-info/top_level.txt
+reading manifest file 'rover_vision.egg-info/SOURCES.txt'
+writing manifest file 'rover_vision.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages/rover-vision.egg-link (link to .)
+Installing vision_node script to /home/fatrat/ros2_ws/install/rover_vision/lib/rover_vision
+
+Installed /home/fatrat/ros2_ws/build/rover_vision
+running symlink_data
+symbolically linking /home/fatrat/ros2_ws/build/rover_vision/resource/rover_vision -> /home/fatrat/ros2_ws/install/rover_vision/share/ament_index/resource_index/packages
+symbolically linking /home/fatrat/ros2_ws/build/rover_vision/package.xml -> /home/fatrat/ros2_ws/install/rover_vision/share/rover_vision

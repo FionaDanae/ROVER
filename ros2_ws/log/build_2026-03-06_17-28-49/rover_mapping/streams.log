@@ -1,0 +1,16 @@
+[7.449s] Invoking command in '/home/fatrat/ros2_ws/build/rover_mapping': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_mapping/build --no-deps symlink_data
+[9.481s] running develop
+[10.925s] running egg_info
+[10.928s] writing rover_mapping.egg-info/PKG-INFO
+[10.929s] writing dependency_links to rover_mapping.egg-info/dependency_links.txt
+[10.932s] writing entry points to rover_mapping.egg-info/entry_points.txt
+[10.933s] writing requirements to rover_mapping.egg-info/requires.txt
+[10.940s] writing top-level names to rover_mapping.egg-info/top_level.txt
+[10.952s] reading manifest file 'rover_mapping.egg-info/SOURCES.txt'
+[10.958s] writing manifest file 'rover_mapping.egg-info/SOURCES.txt'
+[10.970s] running build_ext
+[10.971s] Creating /home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages/rover-mapping.egg-link (link to .)
+[10.989s] 
+[10.991s] Installed /home/fatrat/ros2_ws/build/rover_mapping
+[10.995s] running symlink_data
+[11.348s] Invoked command in '/home/fatrat/ros2_ws/build/rover_mapping' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_mapping/build --no-deps symlink_data

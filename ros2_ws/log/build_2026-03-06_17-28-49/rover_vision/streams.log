@@ -1,0 +1,16 @@
+[7.533s] Invoking command in '/home/fatrat/ros2_ws/build/rover_vision': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_vision/build --no-deps symlink_data
+[9.442s] running develop
+[10.820s] running egg_info
+[10.821s] writing rover_vision.egg-info/PKG-INFO
+[10.825s] writing dependency_links to rover_vision.egg-info/dependency_links.txt
+[10.826s] writing entry points to rover_vision.egg-info/entry_points.txt
+[10.827s] writing requirements to rover_vision.egg-info/requires.txt
+[10.827s] writing top-level names to rover_vision.egg-info/top_level.txt
+[10.840s] reading manifest file 'rover_vision.egg-info/SOURCES.txt'
+[10.843s] writing manifest file 'rover_vision.egg-info/SOURCES.txt'
+[10.851s] running build_ext
+[10.852s] Creating /home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages/rover-vision.egg-link (link to .)
+[10.857s] 
+[10.858s] Installed /home/fatrat/ros2_ws/build/rover_vision
+[10.860s] running symlink_data
+[11.161s] Invoked command in '/home/fatrat/ros2_ws/build/rover_vision' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_vision/build --no-deps symlink_data

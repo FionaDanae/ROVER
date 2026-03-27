@@ -1,0 +1,17 @@
+[7.324s] Invoking command in '/home/fatrat/ros2_ws/build/rover_control1': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_control1/build --no-deps symlink_data
+[9.323s] running develop
+[10.619s] running egg_info
+[10.620s] writing rover_control1.egg-info/PKG-INFO
+[10.622s] writing dependency_links to rover_control1.egg-info/dependency_links.txt
+[10.623s] writing entry points to rover_control1.egg-info/entry_points.txt
+[10.625s] writing requirements to rover_control1.egg-info/requires.txt
+[10.626s] writing top-level names to rover_control1.egg-info/top_level.txt
+[10.636s] reading manifest file 'rover_control1.egg-info/SOURCES.txt'
+[10.640s] writing manifest file 'rover_control1.egg-info/SOURCES.txt'
+[10.649s] running build_ext
+[10.650s] Creating /home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages/rover-control1.egg-link (link to .)
+[10.655s] Installing rover_driver script to /home/fatrat/ros2_ws/install/rover_control1/lib/rover_control1
+[10.657s] 
+[10.658s] Installed /home/fatrat/ros2_ws/build/rover_control1
+[10.659s] running symlink_data
+[10.882s] Invoked command in '/home/fatrat/ros2_ws/build/rover_control1' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_control1/build --no-deps symlink_data

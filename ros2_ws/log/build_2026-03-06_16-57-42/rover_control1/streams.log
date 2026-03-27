@@ -1,0 +1,33 @@
+[2.908s] Invoking command in '/home/fatrat/ros2_ws/src/rover_control1': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_control1 build --build-base /home/fatrat/ros2_ws/build/rover_control1/build install --record /home/fatrat/ros2_ws/build/rover_control1/install.log --single-version-externally-managed install_data
+[4.021s] running egg_info
+[4.024s] creating ../../build/rover_control1/rover_control1.egg-info
+[4.024s] writing ../../build/rover_control1/rover_control1.egg-info/PKG-INFO
+[4.025s] writing dependency_links to ../../build/rover_control1/rover_control1.egg-info/dependency_links.txt
+[4.026s] writing entry points to ../../build/rover_control1/rover_control1.egg-info/entry_points.txt
+[4.027s] writing requirements to ../../build/rover_control1/rover_control1.egg-info/requires.txt
+[4.027s] writing top-level names to ../../build/rover_control1/rover_control1.egg-info/top_level.txt
+[4.028s] writing manifest file '../../build/rover_control1/rover_control1.egg-info/SOURCES.txt'
+[4.035s] reading manifest file '../../build/rover_control1/rover_control1.egg-info/SOURCES.txt'
+[4.038s] writing manifest file '../../build/rover_control1/rover_control1.egg-info/SOURCES.txt'
+[4.039s] running build
+[4.039s] running build_py
+[4.040s] creating /home/fatrat/ros2_ws/build/rover_control1/build
+[4.041s] creating /home/fatrat/ros2_ws/build/rover_control1/build/lib
+[4.041s] creating /home/fatrat/ros2_ws/build/rover_control1/build/lib/rover_control1
+[4.041s] copying rover_control1/__init__.py -> /home/fatrat/ros2_ws/build/rover_control1/build/lib/rover_control1
+[4.042s] running install
+[4.043s] running install_lib
+[4.047s] creating /home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages/rover_control1
+[4.048s] copying /home/fatrat/ros2_ws/build/rover_control1/build/lib/rover_control1/__init__.py -> /home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages/rover_control1
+[4.050s] byte-compiling /home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages/rover_control1/__init__.py to __init__.cpython-310.pyc
+[4.051s] running install_data
+[4.052s] creating /home/fatrat/ros2_ws/install/rover_control1/share/ament_index
+[4.052s] creating /home/fatrat/ros2_ws/install/rover_control1/share/ament_index/resource_index
+[4.053s] creating /home/fatrat/ros2_ws/install/rover_control1/share/ament_index/resource_index/packages
+[4.053s] copying resource/rover_control1 -> /home/fatrat/ros2_ws/install/rover_control1/share/ament_index/resource_index/packages
+[4.053s] copying package.xml -> /home/fatrat/ros2_ws/install/rover_control1/share/rover_control1
+[4.054s] running install_egg_info
+[4.063s] Copying ../../build/rover_control1/rover_control1.egg-info to /home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages/rover_control1-0.0.0-py3.10.egg-info
+[4.069s] running install_scripts
+[4.154s] writing list of installed files to '/home/fatrat/ros2_ws/build/rover_control1/install.log'
+[4.283s] Invoked command in '/home/fatrat/ros2_ws/src/rover_control1' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_control1 build --build-base /home/fatrat/ros2_ws/build/rover_control1/build install --record /home/fatrat/ros2_ws/build/rover_control1/install.log --single-version-externally-managed install_data

@@ -1,0 +1,32 @@
+[5.700s] Invoking command in '/home/fatrat/ros2_ws/build/rover_navigation': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_navigation/build
+[7.177s] running develop
+[8.148s] Removing /home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages/rover-navigation.egg-link (link to .)
+[8.344s] Invoked command in '/home/fatrat/ros2_ws/build/rover_navigation' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_navigation/build
+[8.357s] Invoking command in '/home/fatrat/ros2_ws/src/rover_navigation': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_navigation build --build-base /home/fatrat/ros2_ws/build/rover_navigation/build install --record /home/fatrat/ros2_ws/build/rover_navigation/install.log --single-version-externally-managed install_data --force
+[9.710s] running egg_info
+[9.713s] writing ../../build/rover_navigation/rover_navigation.egg-info/PKG-INFO
+[9.714s] writing dependency_links to ../../build/rover_navigation/rover_navigation.egg-info/dependency_links.txt
+[9.715s] writing entry points to ../../build/rover_navigation/rover_navigation.egg-info/entry_points.txt
+[9.716s] writing requirements to ../../build/rover_navigation/rover_navigation.egg-info/requires.txt
+[9.717s] writing top-level names to ../../build/rover_navigation/rover_navigation.egg-info/top_level.txt
+[9.726s] reading manifest file '../../build/rover_navigation/rover_navigation.egg-info/SOURCES.txt'
+[9.731s] writing manifest file '../../build/rover_navigation/rover_navigation.egg-info/SOURCES.txt'
+[9.732s] running build
+[9.733s] running build_py
+[9.734s] creating /home/fatrat/ros2_ws/build/rover_navigation/build
+[9.734s] creating /home/fatrat/ros2_ws/build/rover_navigation/build/lib
+[9.735s] creating /home/fatrat/ros2_ws/build/rover_navigation/build/lib/rover_navigation
+[9.735s] copying rover_navigation/__init__.py -> /home/fatrat/ros2_ws/build/rover_navigation/build/lib/rover_navigation
+[9.736s] running install
+[9.737s] running install_lib
+[9.741s] creating /home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages/rover_navigation
+[9.742s] copying /home/fatrat/ros2_ws/build/rover_navigation/build/lib/rover_navigation/__init__.py -> /home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages/rover_navigation
+[9.746s] byte-compiling /home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages/rover_navigation/__init__.py to __init__.cpython-310.pyc
+[9.747s] running install_data
+[9.748s] copying resource/rover_navigation -> /home/fatrat/ros2_ws/install/rover_navigation/share/ament_index/resource_index/packages
+[9.751s] copying package.xml -> /home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation
+[9.751s] running install_egg_info
+[9.760s] Copying ../../build/rover_navigation/rover_navigation.egg-info to /home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages/rover_navigation-0.0.0-py3.10.egg-info
+[9.771s] running install_scripts
+[9.875s] writing list of installed files to '/home/fatrat/ros2_ws/build/rover_navigation/install.log'
+[10.050s] Invoked command in '/home/fatrat/ros2_ws/src/rover_navigation' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_navigation build --build-base /home/fatrat/ros2_ws/build/rover_navigation/build install --record /home/fatrat/ros2_ws/build/rover_navigation/install.log --single-version-externally-managed install_data --force

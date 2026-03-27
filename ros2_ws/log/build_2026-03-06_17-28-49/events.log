@@ -1,0 +1,192 @@
+[0.000000] (-) TimerEvent: {}
+[0.001353] (rover_control1) JobQueued: {'identifier': 'rover_control1', 'dependencies': OrderedDict()}
+[0.001584] (rover_mapping) JobQueued: {'identifier': 'rover_mapping', 'dependencies': OrderedDict()}
+[0.001864] (rover_navigation) JobQueued: {'identifier': 'rover_navigation', 'dependencies': OrderedDict()}
+[0.002019] (rover_vision) JobQueued: {'identifier': 'rover_vision', 'dependencies': OrderedDict()}
+[0.002112] (rover_control1) JobStarted: {'identifier': 'rover_control1'}
+[0.042609] (rover_mapping) JobStarted: {'identifier': 'rover_mapping'}
+[0.074054] (rover_navigation) JobStarted: {'identifier': 'rover_navigation'}
+[0.099667] (-) TimerEvent: {}
+[0.108140] (rover_vision) JobStarted: {'identifier': 'rover_vision'}
+[0.199837] (-) TimerEvent: {}
+[0.300727] (-) TimerEvent: {}
+[0.401555] (-) TimerEvent: {}
+[0.502308] (-) TimerEvent: {}
+[0.603054] (-) TimerEvent: {}
+[0.703744] (-) TimerEvent: {}
+[0.804477] (-) TimerEvent: {}
+[0.905143] (-) TimerEvent: {}
+[1.005868] (-) TimerEvent: {}
+[1.106596] (-) TimerEvent: {}
+[1.207310] (-) TimerEvent: {}
+[1.308110] (-) TimerEvent: {}
+[1.409352] (-) TimerEvent: {}
+[1.510137] (-) TimerEvent: {}
+[1.610929] (-) TimerEvent: {}
+[1.711640] (-) TimerEvent: {}
+[1.812303] (-) TimerEvent: {}
+[1.912992] (-) TimerEvent: {}
+[2.013730] (-) TimerEvent: {}
+[2.114437] (-) TimerEvent: {}
+[2.215153] (-) TimerEvent: {}
+[2.315854] (-) TimerEvent: {}
+[2.416716] (-) TimerEvent: {}
+[2.517543] (-) TimerEvent: {}
+[2.618449] (-) TimerEvent: {}
+[2.719324] (-) TimerEvent: {}
+[2.820082] (-) TimerEvent: {}
+[2.920890] (-) TimerEvent: {}
+[3.021601] (-) TimerEvent: {}
+[3.122338] (-) TimerEvent: {}
+[3.223076] (-) TimerEvent: {}
+[3.323743] (-) TimerEvent: {}
+[3.424425] (-) TimerEvent: {}
+[3.525249] (-) TimerEvent: {}
+[3.626177] (-) TimerEvent: {}
+[3.727436] (-) TimerEvent: {}
+[3.828542] (-) TimerEvent: {}
+[3.929461] (-) TimerEvent: {}
+[4.030252] (-) TimerEvent: {}
+[4.131125] (-) TimerEvent: {}
+[4.231913] (-) TimerEvent: {}
+[4.332703] (-) TimerEvent: {}
+[4.433413] (-) TimerEvent: {}
+[4.534099] (-) TimerEvent: {}
+[4.634816] (-) TimerEvent: {}
+[4.735558] (-) TimerEvent: {}
+[4.836473] (-) TimerEvent: {}
+[4.937914] (-) TimerEvent: {}
+[5.038794] (-) TimerEvent: {}
+[5.140514] (-) TimerEvent: {}
+[5.241791] (-) TimerEvent: {}
+[5.342748] (-) TimerEvent: {}
+[5.443818] (-) TimerEvent: {}
+[5.544713] (-) TimerEvent: {}
+[5.645830] (-) TimerEvent: {}
+[5.746877] (-) TimerEvent: {}
+[5.848000] (-) TimerEvent: {}
+[5.949349] (-) TimerEvent: {}
+[6.050367] (-) TimerEvent: {}
+[6.151323] (-) TimerEvent: {}
+[6.252361] (-) TimerEvent: {}
+[6.353406] (-) TimerEvent: {}
+[6.454401] (-) TimerEvent: {}
+[6.556496] (-) TimerEvent: {}
+[6.658048] (-) TimerEvent: {}
+[6.759484] (-) TimerEvent: {}
+[6.860852] (-) TimerEvent: {}
+[6.962336] (-) TimerEvent: {}
+[7.064292] (-) TimerEvent: {}
+[7.166672] (-) TimerEvent: {}
+[7.270111] (-) TimerEvent: {}
+[7.319500] (rover_control1) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/fatrat/ros2_ws/build/rover_control1/build', '--no-deps', 'symlink_data'], 'cwd': '/home/fatrat/ros2_ws/build/rover_control1', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'fatrat', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/fatrat', 'OLDPWD': '/home/fatrat/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1878', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/fatrat/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'fatrat', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'fatrat', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/fat-rat:@/tmp/.ICE-unix/1560,unix/fat-rat:/tmp/.ICE-unix/1560', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/058239d7_b355_4847_8d66_9505c2259248', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_MX.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.UI4IL3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/fatrat/ros2_ws/build/rover_control1', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[7.372495] (-) TimerEvent: {}
+[7.475024] (-) TimerEvent: {}
+[7.484562] (rover_mapping) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/fatrat/ros2_ws/build/rover_mapping/build', '--no-deps', 'symlink_data'], 'cwd': '/home/fatrat/ros2_ws/build/rover_mapping', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'fatrat', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/fatrat', 'OLDPWD': '/home/fatrat/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1878', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/fatrat/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'fatrat', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'fatrat', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/fat-rat:@/tmp/.ICE-unix/1560,unix/fat-rat:/tmp/.ICE-unix/1560', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/058239d7_b355_4847_8d66_9505c2259248', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_MX.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.UI4IL3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/fatrat/ros2_ws/build/rover_mapping', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[7.575415] (-) TimerEvent: {}
+[7.636914] (rover_vision) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/fatrat/ros2_ws/build/rover_vision/build', '--no-deps', 'symlink_data'], 'cwd': '/home/fatrat/ros2_ws/build/rover_vision', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'fatrat', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/fatrat', 'OLDPWD': '/home/fatrat/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1878', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/fatrat/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'fatrat', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'fatrat', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/fat-rat:@/tmp/.ICE-unix/1560,unix/fat-rat:/tmp/.ICE-unix/1560', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/058239d7_b355_4847_8d66_9505c2259248', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_MX.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.UI4IL3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/fatrat/ros2_ws/build/rover_vision', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/fatrat/ros2_ws/build/rover_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[7.661245] (rover_navigation) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/fatrat/ros2_ws/build/rover_navigation/build', '--no-deps', 'symlink_data'], 'cwd': '/home/fatrat/ros2_ws/build/rover_navigation', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'fatrat', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/fatrat', 'OLDPWD': '/home/fatrat/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1878', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/fatrat/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'fatrat', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'fatrat', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/fat-rat:@/tmp/.ICE-unix/1560,unix/fat-rat:/tmp/.ICE-unix/1560', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/058239d7_b355_4847_8d66_9505c2259248', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'es_MX.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.UI4IL3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.121', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/fatrat/ros2_ws/build/rover_navigation', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[7.675704] (-) TimerEvent: {}
+[7.777295] (-) TimerEvent: {}
+[7.878951] (-) TimerEvent: {}
+[7.980603] (-) TimerEvent: {}
+[8.081850] (-) TimerEvent: {}
+[8.182779] (-) TimerEvent: {}
+[8.283864] (-) TimerEvent: {}
+[8.384996] (-) TimerEvent: {}
+[8.486109] (-) TimerEvent: {}
+[8.587101] (-) TimerEvent: {}
+[8.688178] (-) TimerEvent: {}
+[8.789146] (-) TimerEvent: {}
+[8.890124] (-) TimerEvent: {}
+[8.991292] (-) TimerEvent: {}
+[9.099021] (-) TimerEvent: {}
+[9.200008] (-) TimerEvent: {}
+[9.301093] (-) TimerEvent: {}
+[9.324496] (rover_control1) StdoutLine: {'line': b'running develop\n'}
+[9.401394] (-) TimerEvent: {}
+[9.502394] (-) TimerEvent: {}
+[9.523342] (rover_mapping) StdoutLine: {'line': b'running develop\n'}
+[9.550181] (rover_vision) StdoutLine: {'line': b'running develop\n'}
+[9.587178] (rover_navigation) StdoutLine: {'line': b'running develop\n'}
+[9.602651] (-) TimerEvent: {}
+[9.703579] (-) TimerEvent: {}
+[9.804512] (-) TimerEvent: {}
+[9.905526] (-) TimerEvent: {}
+[10.006595] (-) TimerEvent: {}
+[10.107525] (-) TimerEvent: {}
+[10.208556] (-) TimerEvent: {}
+[10.309458] (-) TimerEvent: {}
+[10.410449] (-) TimerEvent: {}
+[10.511435] (-) TimerEvent: {}
+[10.612370] (-) TimerEvent: {}
+[10.620232] (rover_control1) StdoutLine: {'line': b'running egg_info\n'}
+[10.621439] (rover_control1) StdoutLine: {'line': b'writing rover_control1.egg-info/PKG-INFO\n'}
+[10.623335] (rover_control1) StdoutLine: {'line': b'writing dependency_links to rover_control1.egg-info/dependency_links.txt\n'}
+[10.625141] (rover_control1) StdoutLine: {'line': b'writing entry points to rover_control1.egg-info/entry_points.txt\n'}
+[10.626763] (rover_control1) StdoutLine: {'line': b'writing requirements to rover_control1.egg-info/requires.txt\n'}
+[10.628084] (rover_control1) StdoutLine: {'line': b'writing top-level names to rover_control1.egg-info/top_level.txt\n'}
+[10.637680] (rover_control1) StdoutLine: {'line': b"reading manifest file 'rover_control1.egg-info/SOURCES.txt'\n"}
+[10.641820] (rover_control1) StdoutLine: {'line': b"writing manifest file 'rover_control1.egg-info/SOURCES.txt'\n"}
+[10.650457] (rover_control1) StdoutLine: {'line': b'running build_ext\n'}
+[10.651704] (rover_control1) StdoutLine: {'line': b'Creating /home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages/rover-control1.egg-link (link to .)\n'}
+[10.656601] (rover_control1) StdoutLine: {'line': b'Installing rover_driver script to /home/fatrat/ros2_ws/install/rover_control1/lib/rover_control1\n'}
+[10.658421] (rover_control1) StdoutLine: {'line': b'\n'}
+[10.659318] (rover_control1) StdoutLine: {'line': b'Installed /home/fatrat/ros2_ws/build/rover_control1\n'}
+[10.660495] (rover_control1) StdoutLine: {'line': b'running symlink_data\n'}
+[10.713024] (-) TimerEvent: {}
+[10.814828] (-) TimerEvent: {}
+[10.883070] (rover_control1) CommandEnded: {'returncode': 0}
+[10.915467] (-) TimerEvent: {}
+[10.928421] (rover_vision) StdoutLine: {'line': b'running egg_info\n'}
+[10.929459] (rover_vision) StdoutLine: {'line': b'writing rover_vision.egg-info/PKG-INFO\n'}
+[10.932945] (rover_vision) StdoutLine: {'line': b'writing dependency_links to rover_vision.egg-info/dependency_links.txt\n'}
+[10.933940] (rover_vision) StdoutLine: {'line': b'writing entry points to rover_vision.egg-info/entry_points.txt\n'}
+[10.934926] (rover_vision) StdoutLine: {'line': b'writing requirements to rover_vision.egg-info/requires.txt\n'}
+[10.935510] (rover_vision) StdoutLine: {'line': b'writing top-level names to rover_vision.egg-info/top_level.txt\n'}
+[10.947429] (rover_vision) StdoutLine: {'line': b"reading manifest file 'rover_vision.egg-info/SOURCES.txt'\n"}
+[10.951075] (rover_vision) StdoutLine: {'line': b"writing manifest file 'rover_vision.egg-info/SOURCES.txt'\n"}
+[10.958746] (rover_vision) StdoutLine: {'line': b'running build_ext\n'}
+[10.959957] (rover_vision) StdoutLine: {'line': b'Creating /home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages/rover-vision.egg-link (link to .)\n'}
+[10.965768] (rover_vision) StdoutLine: {'line': b'\n'}
+[10.966435] (rover_vision) StdoutLine: {'line': b'Installed /home/fatrat/ros2_ws/build/rover_vision\n'}
+[10.967448] (rover_mapping) StdoutLine: {'line': b'running egg_info\n'}
+[10.968478] (rover_vision) StdoutLine: {'line': b'running symlink_data\n'}
+[10.970320] (rover_mapping) StdoutLine: {'line': b'writing rover_mapping.egg-info/PKG-INFO\n'}
+[10.971512] (rover_mapping) StdoutLine: {'line': b'writing dependency_links to rover_mapping.egg-info/dependency_links.txt\n'}
+[10.973745] (rover_mapping) StdoutLine: {'line': b'writing entry points to rover_mapping.egg-info/entry_points.txt\n'}
+[10.975825] (rover_mapping) StdoutLine: {'line': b'writing requirements to rover_mapping.egg-info/requires.txt\n'}
+[10.982441] (rover_mapping) StdoutLine: {'line': b'writing top-level names to rover_mapping.egg-info/top_level.txt\n'}
+[10.987097] (rover_control1) JobEnded: {'identifier': 'rover_control1', 'rc': 0}
+[10.994665] (rover_mapping) StdoutLine: {'line': b"reading manifest file 'rover_mapping.egg-info/SOURCES.txt'\n"}
+[11.000209] (rover_mapping) StdoutLine: {'line': b"writing manifest file 'rover_mapping.egg-info/SOURCES.txt'\n"}
+[11.012837] (rover_mapping) StdoutLine: {'line': b'running build_ext\n'}
+[11.014174] (rover_mapping) StdoutLine: {'line': b'Creating /home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages/rover-mapping.egg-link (link to .)\n'}
+[11.015881] (-) TimerEvent: {}
+[11.030837] (rover_mapping) StdoutLine: {'line': b'\n'}
+[11.032680] (rover_mapping) StdoutLine: {'line': b'Installed /home/fatrat/ros2_ws/build/rover_mapping\n'}
+[11.035616] (rover_mapping) StdoutLine: {'line': b'running symlink_data\n'}
+[11.073340] (rover_navigation) StdoutLine: {'line': b'running egg_info\n'}
+[11.075853] (rover_navigation) StdoutLine: {'line': b'writing rover_navigation.egg-info/PKG-INFO\n'}
+[11.083721] (rover_navigation) StdoutLine: {'line': b'writing dependency_links to rover_navigation.egg-info/dependency_links.txt\n'}
+[11.091354] (rover_navigation) StdoutLine: {'line': b'writing entry points to rover_navigation.egg-info/entry_points.txt\n'}
+[11.097776] (rover_navigation) StdoutLine: {'line': b'writing requirements to rover_navigation.egg-info/requires.txt\n'}
+[11.101152] (rover_navigation) StdoutLine: {'line': b'writing top-level names to rover_navigation.egg-info/top_level.txt\n'}
+[11.116181] (-) TimerEvent: {}
+[11.122157] (rover_navigation) StdoutLine: {'line': b"reading manifest file 'rover_navigation.egg-info/SOURCES.txt'\n"}
+[11.130613] (rover_navigation) StdoutLine: {'line': b"writing manifest file 'rover_navigation.egg-info/SOURCES.txt'\n"}
+[11.153605] (rover_navigation) StdoutLine: {'line': b'running build_ext\n'}
+[11.157053] (rover_navigation) StdoutLine: {'line': b'Creating /home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages/rover-navigation.egg-link (link to .)\n'}
+[11.175838] (rover_navigation) StdoutLine: {'line': b'\n'}
+[11.177553] (rover_navigation) StdoutLine: {'line': b'Installed /home/fatrat/ros2_ws/build/rover_navigation\n'}
+[11.180563] (rover_navigation) StdoutLine: {'line': b'running symlink_data\n'}
+[11.216695] (-) TimerEvent: {}
+[11.266357] (rover_vision) CommandEnded: {'returncode': 0}
+[11.317590] (-) TimerEvent: {}
+[11.370425] (rover_vision) JobEnded: {'identifier': 'rover_vision', 'rc': 0}
+[11.389304] (rover_mapping) CommandEnded: {'returncode': 0}
+[11.417712] (-) TimerEvent: {}
+[11.435106] (rover_mapping) JobEnded: {'identifier': 'rover_mapping', 'rc': 0}
+[11.442264] (rover_navigation) CommandEnded: {'returncode': 0}
+[11.484697] (rover_navigation) JobEnded: {'identifier': 'rover_navigation', 'rc': 0}
+[11.487783] (-) EventReactorShutdown: {}

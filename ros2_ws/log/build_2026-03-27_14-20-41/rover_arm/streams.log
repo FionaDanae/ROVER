@@ -1,0 +1,39 @@
+[8.446s] Invoking command in '/home/fatrat/ros2_ws/build/rover_arm': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_arm/build
+[10.408s] running develop
+[11.768s] Removing /home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages/rover-arm.egg-link (link to .)
+[12.100s] Invoked command in '/home/fatrat/ros2_ws/build/rover_arm' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_arm/build
+[12.107s] Invoking command in '/home/fatrat/ros2_ws/src/rover_arm': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_arm build --build-base /home/fatrat/ros2_ws/build/rover_arm/build install --record /home/fatrat/ros2_ws/build/rover_arm/install.log --single-version-externally-managed install_data --force
+[13.911s] Traceback (most recent call last):
+[13.912s]   File "/home/fatrat/ros2_ws/src/rover_arm/setup.py", line 1, in <module>
+[13.913s]     from setuptools import find_packages, setup
+[13.914s]   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 242, in <module>
+[13.952s]     monkey.patch_all()
+[13.964s]   File "/usr/lib/python3/dist-packages/setuptools/monkey.py", line 99, in patch_all
+[14.002s]     patch_for_msvc_specialized_compiler()
+[14.005s]   File "/usr/lib/python3/dist-packages/setuptools/monkey.py", line 136, in patch_for_msvc_specialized_compiler
+[14.018s]     msvc = import_module('setuptools.msvc')
+[14.020s]   File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+[14.076s]     return _bootstrap._gcd_import(name[level:], package, level)
+[14.079s]   File "/usr/lib/python3/dist-packages/setuptools/msvc.py", line 22, in <module>
+[14.085s]     import json
+[14.086s]   File "/usr/lib/python3.10/json/__init__.py", line 106, in <module>
+[14.137s]     from .decoder import JSONDecoder, JSONDecodeError
+[14.140s]   File "/usr/lib/python3.10/json/decoder.py", line 5, in <module>
+[14.156s]     from json import scanner
+[14.159s]   File "/usr/lib/python3.10/json/scanner.py", line 11, in <module>
+[14.161s]     NUMBER_RE = re.compile(
+[14.163s]   File "/usr/lib/python3.10/re.py", line 251, in compile
+[14.200s]     return _compile(pattern, flags)
+[14.202s]   File "/usr/lib/python3.10/re.py", line 303, in _compile
+[14.204s]     p = sre_compile.compile(pattern, flags)
+[14.206s]   File "/usr/lib/python3.10/sre_compile.py", line 788, in compile
+[14.222s]     p = sre_parse.parse(p, flags)
+[14.224s]   File "/usr/lib/python3.10/sre_parse.py", line 955, in parse
+[14.233s]     p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+[14.235s]   File "/usr/lib/python3.10/sre_parse.py", line 444, in _parse_sub
+[14.240s]     itemsappend(_parse(source, state, verbose, nested + 1,
+[14.240s]   File "/usr/lib/python3.10/sre_parse.py", line 687, in _parse
+[14.241s]     start = source.tell() - 1
+[14.241s]   File "/usr/lib/python3.10/sre_parse.py", line 287, in tell
+[14.242s]     def tell(self):
+[14.242s] KeyboardInterrupt

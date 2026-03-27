@@ -1,0 +1,3 @@
+[console_scripts]
+rover_driver = rover_control1.rover_driver:main
+

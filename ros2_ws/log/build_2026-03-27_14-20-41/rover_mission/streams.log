@@ -1,0 +1,37 @@
+[8.241s] Invoking command in '/home/fatrat/ros2_ws/build/rover_mission': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_mission/build
+[10.345s] running develop
+[11.998s] Removing /home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages/rover-mission.egg-link (link to .)
+[12.271s] Invoked command in '/home/fatrat/ros2_ws/build/rover_mission' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_mission/build
+[12.282s] Invoking command in '/home/fatrat/ros2_ws/src/rover_mission': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mission build --build-base /home/fatrat/ros2_ws/build/rover_mission/build install --record /home/fatrat/ros2_ws/build/rover_mission/install.log --single-version-externally-managed install_data --force
+[13.770s] Traceback (most recent call last):
+[13.771s]   File "/home/fatrat/ros2_ws/src/rover_mission/setup.py", line 1, in <module>
+[13.772s]     from setuptools import find_packages, setup
+[13.780s]   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 16, in <module>
+[13.783s]     import setuptools.version
+[13.853s]   File "/usr/lib/python3/dist-packages/setuptools/version.py", line 1, in <module>
+[13.893s]     import pkg_resources
+[13.896s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3267, in <module>
+[14.030s]     def _initialize_master_working_set():
+[14.037s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3241, in _call_aside
+[14.062s]     f(*args, **kwargs)
+[14.063s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3302, in _initialize_master_working_set
+[14.081s]     list(map(working_set.add_entry, sys.path))
+[14.085s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 613, in add_entry
+[14.087s]     for dist in find_distributions(entry, True):
+[14.091s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2077, in find_on_path
+[14.097s]     for dist in factory(fullpath):
+[14.097s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2142, in distributions_from_metadata
+[14.098s]     yield Distribution.from_location(
+[14.098s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2606, in from_location
+[14.098s]     )._reload_version()
+[14.099s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3004, in _reload_version
+[14.099s]     md_version = self._get_version()
+[14.100s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2785, in _get_version
+[14.100s]     version = _version_from_file(lines)
+[14.101s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2571, in _version_from_file
+[14.101s]     return safe_version(value.strip()) or None
+[14.102s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 1323, in safe_version
+[14.103s]     return str(packaging.version.Version(version))
+[14.104s]   File "/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/version.py", line 264, in __init__
+[14.105s]     match = self._regex.search(version)
+[14.106s] KeyboardInterrupt

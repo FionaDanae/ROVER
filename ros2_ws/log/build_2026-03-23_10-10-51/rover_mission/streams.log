@@ -1,0 +1,19 @@
+[13.361s] Invoking command in '/home/fatrat/ros2_ws/build/rover_mission': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_mission/build --no-deps symlink_data --force
+[17.924s] running develop
+[20.071s] running egg_info
+[20.078s] writing rover_mission.egg-info/PKG-INFO
+[20.105s] writing dependency_links to rover_mission.egg-info/dependency_links.txt
+[20.105s] writing entry points to rover_mission.egg-info/entry_points.txt
+[20.130s] writing requirements to rover_mission.egg-info/requires.txt
+[20.131s] writing top-level names to rover_mission.egg-info/top_level.txt
+[20.139s] reading manifest file 'rover_mission.egg-info/SOURCES.txt'
+[20.156s] writing manifest file 'rover_mission.egg-info/SOURCES.txt'
+[20.209s] running build_ext
+[20.210s] Creating /home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages/rover-mission.egg-link (link to .)
+[20.229s] Installing mission_node script to /home/fatrat/ros2_ws/install/rover_mission/lib/rover_mission
+[20.230s] 
+[20.231s] Installed /home/fatrat/ros2_ws/build/rover_mission
+[20.232s] running symlink_data
+[20.232s] symbolically linking /home/fatrat/ros2_ws/build/rover_mission/resource/rover_mission -> /home/fatrat/ros2_ws/install/rover_mission/share/ament_index/resource_index/packages
+[20.233s] symbolically linking /home/fatrat/ros2_ws/build/rover_mission/package.xml -> /home/fatrat/ros2_ws/install/rover_mission/share/rover_mission
+[23.025s] Invoked command in '/home/fatrat/ros2_ws/build/rover_mission' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/fatrat/ros2_ws/build/rover_mission/build --no-deps symlink_data --force

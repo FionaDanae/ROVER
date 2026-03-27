@@ -1,0 +1,32 @@
+[6.848s] Invoking command in '/home/fatrat/ros2_ws/build/rover_monitor': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_monitor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_monitor/build
+[8.660s] running develop
+[9.902s] Removing /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover-monitor.egg-link (link to .)
+[10.127s] Invoked command in '/home/fatrat/ros2_ws/build/rover_monitor' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_monitor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/fatrat/ros2_ws/build/rover_monitor/build
+[10.137s] Invoking command in '/home/fatrat/ros2_ws/src/rover_monitor': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_monitor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_monitor build --build-base /home/fatrat/ros2_ws/build/rover_monitor/build install --record /home/fatrat/ros2_ws/build/rover_monitor/install.log --single-version-externally-managed install_data --force
+[11.539s] running egg_info
+[11.542s] writing ../../build/rover_monitor/rover_monitor.egg-info/PKG-INFO
+[11.544s] writing dependency_links to ../../build/rover_monitor/rover_monitor.egg-info/dependency_links.txt
+[11.546s] writing entry points to ../../build/rover_monitor/rover_monitor.egg-info/entry_points.txt
+[11.547s] writing requirements to ../../build/rover_monitor/rover_monitor.egg-info/requires.txt
+[11.547s] writing top-level names to ../../build/rover_monitor/rover_monitor.egg-info/top_level.txt
+[11.556s] reading manifest file '../../build/rover_monitor/rover_monitor.egg-info/SOURCES.txt'
+[11.584s] writing manifest file '../../build/rover_monitor/rover_monitor.egg-info/SOURCES.txt'
+[11.589s] running build
+[11.589s] running build_py
+[11.590s] copying rover_monitor/monitor_node.py -> /home/fatrat/ros2_ws/build/rover_monitor/build/lib/rover_monitor
+[11.593s] running install
+[11.594s] running install_lib
+[11.599s] creating /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover_monitor
+[11.600s] copying /home/fatrat/ros2_ws/build/rover_monitor/build/lib/rover_monitor/monitor_node.py -> /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover_monitor
+[11.601s] copying /home/fatrat/ros2_ws/build/rover_monitor/build/lib/rover_monitor/__init__.py -> /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover_monitor
+[11.605s] byte-compiling /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover_monitor/monitor_node.py to monitor_node.cpython-310.pyc
+[11.609s] byte-compiling /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover_monitor/__init__.py to __init__.cpython-310.pyc
+[11.611s] running install_data
+[11.612s] copying resource/rover_monitor -> /home/fatrat/ros2_ws/install/rover_monitor/share/ament_index/resource_index/packages
+[11.613s] copying package.xml -> /home/fatrat/ros2_ws/install/rover_monitor/share/rover_monitor
+[11.613s] running install_egg_info
+[11.629s] Copying ../../build/rover_monitor/rover_monitor.egg-info to /home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages/rover_monitor-0.0.0-py3.10.egg-info
+[11.638s] running install_scripts
+[11.741s] Installing monitor_node script to /home/fatrat/ros2_ws/install/rover_monitor/lib/rover_monitor
+[11.745s] writing list of installed files to '/home/fatrat/ros2_ws/build/rover_monitor/install.log'
+[11.980s] Invoked command in '/home/fatrat/ros2_ws/src/rover_monitor' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_monitor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_monitor/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_monitor build --build-base /home/fatrat/ros2_ws/build/rover_monitor/build install --record /home/fatrat/ros2_ws/build/rover_monitor/install.log --single-version-externally-managed install_data --force

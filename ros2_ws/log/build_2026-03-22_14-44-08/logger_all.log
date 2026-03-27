@@ -1,0 +1,377 @@
+[0.550s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.550s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff85728f70>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff858ca440>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff858ca440>>)
+[1.424s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.425s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.425s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.425s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.425s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[1.426s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.426s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/fatrat/ros2_ws'
+[1.426s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.426s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[1.427s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[1.427s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[1.427s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[1.427s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[1.427s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[1.428s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[1.428s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[1.477s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[1.477s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[1.477s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[1.478s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[1.478s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[1.479s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.480s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[1.481s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.483s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[1.484s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.485s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[1.486s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[1.486s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.487s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[1.487s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[1.487s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[1.488s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[1.488s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[1.488s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[1.488s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[1.488s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[1.489s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[1.490s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extensions ['ignore', 'ignore_ament_install']
+[1.490s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extension 'ignore'
+[1.490s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extension 'ignore_ament_install'
+[1.490s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extensions ['colcon_pkg']
+[1.491s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extension 'colcon_pkg'
+[1.491s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extensions ['colcon_meta']
+[1.491s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extension 'colcon_meta'
+[1.491s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extensions ['ros']
+[1.492s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_arm) by extension 'ros'
+[1.503s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rover_arm' with type 'ros.ament_python' and name 'rover_arm'
+[1.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extensions ['ignore', 'ignore_ament_install']
+[1.504s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extension 'ignore'
+[1.505s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extension 'ignore_ament_install'
+[1.505s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extensions ['colcon_pkg']
+[1.506s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extension 'colcon_pkg'
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extensions ['colcon_meta']
+[1.507s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extension 'colcon_meta'
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extensions ['ros']
+[1.508s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_control1) by extension 'ros'
+[1.512s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rover_control1' with type 'ros.ament_python' and name 'rover_control1'
+[1.513s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extensions ['ignore', 'ignore_ament_install']
+[1.514s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extension 'ignore'
+[1.514s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extension 'ignore_ament_install'
+[1.514s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extensions ['colcon_pkg']
+[1.515s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extension 'colcon_pkg'
+[1.515s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extensions ['colcon_meta']
+[1.515s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extension 'colcon_meta'
+[1.515s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extensions ['ros']
+[1.515s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mapping) by extension 'ros'
+[1.518s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rover_mapping' with type 'ros.ament_python' and name 'rover_mapping'
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extensions ['ignore', 'ignore_ament_install']
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extension 'ignore'
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extension 'ignore_ament_install'
+[1.519s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extensions ['colcon_pkg']
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extension 'colcon_pkg'
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extensions ['colcon_meta']
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extension 'colcon_meta'
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extensions ['ros']
+[1.520s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_mission) by extension 'ros'
+[1.523s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rover_mission' with type 'ros.ament_python' and name 'rover_mission'
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extensions ['ignore', 'ignore_ament_install']
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extension 'ignore'
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extension 'ignore_ament_install'
+[1.524s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extensions ['colcon_pkg']
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extension 'colcon_pkg'
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extensions ['colcon_meta']
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extension 'colcon_meta'
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extensions ['ros']
+[1.525s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_navigation) by extension 'ros'
+[1.528s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rover_navigation' with type 'ros.ament_python' and name 'rover_navigation'
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extensions ['ignore', 'ignore_ament_install']
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extension 'ignore'
+[1.529s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extension 'ignore_ament_install'
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extensions ['colcon_pkg']
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extension 'colcon_pkg'
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extensions ['colcon_meta']
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extension 'colcon_meta'
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extensions ['ros']
+[1.530s] Level 1:colcon.colcon_core.package_identification:_identify(src/rover_vision) by extension 'ros'
+[1.533s] DEBUG:colcon.colcon_core.package_identification:Package 'src/rover_vision' with type 'ros.ament_python' and name 'rover_vision'
+[1.534s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[1.534s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[1.534s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[1.534s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[1.534s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.626s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[1.626s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[1.636s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/fatrat/ros2_ws/install
+[1.647s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 325 installed packages in /opt/ros/humble
+[1.695s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.903s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'cmake_args' from command line to 'None'
+[1.903s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'cmake_target' from command line to 'None'
+[1.903s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.903s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'cmake_clean_cache' from command line to 'False'
+[1.903s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'cmake_clean_first' from command line to 'False'
+[1.904s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'cmake_force_configure' from command line to 'False'
+[1.904s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'ament_cmake_args' from command line to 'None'
+[1.904s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'catkin_cmake_args' from command line to 'None'
+[1.904s] Level 5:colcon.colcon_core.verb:set package 'rover_arm' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.904s] DEBUG:colcon.colcon_core.verb:Building package 'rover_arm' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fatrat/ros2_ws/build/rover_arm', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fatrat/ros2_ws/install/rover_arm', 'merge_install': False, 'path': '/home/fatrat/ros2_ws/src/rover_arm', 'symlink_install': False, 'test_result_base': None}
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'cmake_args' from command line to 'None'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'cmake_target' from command line to 'None'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'cmake_clean_cache' from command line to 'False'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'cmake_clean_first' from command line to 'False'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'cmake_force_configure' from command line to 'False'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'ament_cmake_args' from command line to 'None'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'catkin_cmake_args' from command line to 'None'
+[1.906s] Level 5:colcon.colcon_core.verb:set package 'rover_control1' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.907s] DEBUG:colcon.colcon_core.verb:Building package 'rover_control1' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fatrat/ros2_ws/build/rover_control1', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fatrat/ros2_ws/install/rover_control1', 'merge_install': False, 'path': '/home/fatrat/ros2_ws/src/rover_control1', 'symlink_install': False, 'test_result_base': None}
+[1.908s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'cmake_args' from command line to 'None'
+[1.908s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'cmake_target' from command line to 'None'
+[1.908s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.909s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'cmake_clean_cache' from command line to 'False'
+[1.909s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'cmake_clean_first' from command line to 'False'
+[1.909s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'cmake_force_configure' from command line to 'False'
+[1.909s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'ament_cmake_args' from command line to 'None'
+[1.909s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'catkin_cmake_args' from command line to 'None'
+[1.909s] Level 5:colcon.colcon_core.verb:set package 'rover_mapping' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.909s] DEBUG:colcon.colcon_core.verb:Building package 'rover_mapping' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fatrat/ros2_ws/build/rover_mapping', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fatrat/ros2_ws/install/rover_mapping', 'merge_install': False, 'path': '/home/fatrat/ros2_ws/src/rover_mapping', 'symlink_install': False, 'test_result_base': None}
+[1.911s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'cmake_args' from command line to 'None'
+[1.911s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'cmake_target' from command line to 'None'
+[1.911s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.911s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'cmake_clean_cache' from command line to 'False'
+[1.911s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'cmake_clean_first' from command line to 'False'
+[1.911s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'cmake_force_configure' from command line to 'False'
+[1.912s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'ament_cmake_args' from command line to 'None'
+[1.912s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'catkin_cmake_args' from command line to 'None'
+[1.912s] Level 5:colcon.colcon_core.verb:set package 'rover_mission' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.912s] DEBUG:colcon.colcon_core.verb:Building package 'rover_mission' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fatrat/ros2_ws/build/rover_mission', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fatrat/ros2_ws/install/rover_mission', 'merge_install': False, 'path': '/home/fatrat/ros2_ws/src/rover_mission', 'symlink_install': False, 'test_result_base': None}
+[1.913s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'cmake_args' from command line to 'None'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'cmake_target' from command line to 'None'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'cmake_clean_cache' from command line to 'False'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'cmake_clean_first' from command line to 'False'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'cmake_force_configure' from command line to 'False'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'ament_cmake_args' from command line to 'None'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'catkin_cmake_args' from command line to 'None'
+[1.914s] Level 5:colcon.colcon_core.verb:set package 'rover_navigation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.915s] DEBUG:colcon.colcon_core.verb:Building package 'rover_navigation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fatrat/ros2_ws/build/rover_navigation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fatrat/ros2_ws/install/rover_navigation', 'merge_install': False, 'path': '/home/fatrat/ros2_ws/src/rover_navigation', 'symlink_install': False, 'test_result_base': None}
+[1.916s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'cmake_args' from command line to 'None'
+[1.916s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'cmake_target' from command line to 'None'
+[1.916s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.916s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'cmake_clean_cache' from command line to 'False'
+[1.916s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'cmake_clean_first' from command line to 'False'
+[1.916s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'cmake_force_configure' from command line to 'False'
+[1.917s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'ament_cmake_args' from command line to 'None'
+[1.917s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'catkin_cmake_args' from command line to 'None'
+[1.917s] Level 5:colcon.colcon_core.verb:set package 'rover_vision' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.917s] DEBUG:colcon.colcon_core.verb:Building package 'rover_vision' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fatrat/ros2_ws/build/rover_vision', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fatrat/ros2_ws/install/rover_vision', 'merge_install': False, 'path': '/home/fatrat/ros2_ws/src/rover_vision', 'symlink_install': False, 'test_result_base': None}
+[1.918s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.921s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.922s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fatrat/ros2_ws/src/rover_arm' with build type 'ament_python'
+[1.922s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_arm', 'ament_prefix_path')
+[1.932s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.933s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/hook/ament_prefix_path.ps1'
+[1.937s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/hook/ament_prefix_path.dsv'
+[1.939s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/hook/ament_prefix_path.sh'
+[1.945s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.945s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.968s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fatrat/ros2_ws/src/rover_control1' with build type 'ament_python'
+[1.969s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_control1', 'ament_prefix_path')
+[1.970s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/hook/ament_prefix_path.ps1'
+[1.973s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/hook/ament_prefix_path.dsv'
+[1.975s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/hook/ament_prefix_path.sh'
+[1.979s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.979s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.003s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fatrat/ros2_ws/src/rover_mapping' with build type 'ament_python'
+[2.004s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_mapping', 'ament_prefix_path')
+[2.005s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/hook/ament_prefix_path.ps1'
+[2.008s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/hook/ament_prefix_path.dsv'
+[2.011s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/hook/ament_prefix_path.sh'
+[2.016s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.017s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.040s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fatrat/ros2_ws/src/rover_mission' with build type 'ament_python'
+[2.041s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_mission', 'ament_prefix_path')
+[2.043s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/hook/ament_prefix_path.ps1'
+[2.046s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/hook/ament_prefix_path.dsv'
+[2.049s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/hook/ament_prefix_path.sh'
+[2.053s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.053s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.442s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fatrat/ros2_ws/src/rover_arm'
+[3.443s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.443s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.860s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fatrat/ros2_ws/src/rover_control1'
+[4.861s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.862s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.259s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fatrat/ros2_ws/src/rover_mapping'
+[6.261s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.261s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.637s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fatrat/ros2_ws/src/rover_mission'
+[7.638s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.638s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.203s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fatrat/ros2_ws/src/rover_mapping': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mapping build --build-base /home/fatrat/ros2_ws/build/rover_mapping/build install --record /home/fatrat/ros2_ws/build/rover_mapping/install.log --single-version-externally-managed install_data
+[10.454s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fatrat/ros2_ws/src/rover_arm': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_arm build --build-base /home/fatrat/ros2_ws/build/rover_arm/build install --record /home/fatrat/ros2_ws/build/rover_arm/install.log --single-version-externally-managed install_data
+[10.874s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fatrat/ros2_ws/src/rover_control1': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_control1 build --build-base /home/fatrat/ros2_ws/build/rover_control1/build install --record /home/fatrat/ros2_ws/build/rover_control1/install.log --single-version-externally-managed install_data
+[11.277s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fatrat/ros2_ws/src/rover_mission': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mission build --build-base /home/fatrat/ros2_ws/build/rover_mission/build install --record /home/fatrat/ros2_ws/build/rover_mission/install.log --single-version-externally-managed install_data
+[13.064s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fatrat/ros2_ws/src/rover_mapping' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mapping build --build-base /home/fatrat/ros2_ws/build/rover_mapping/build install --record /home/fatrat/ros2_ws/build/rover_mapping/install.log --single-version-externally-managed install_data
+[13.125s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping' for CMake module files
+[13.129s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping' for CMake config files
+[13.142s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping/lib'
+[13.143s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping/bin'
+[13.144s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping/lib/pkgconfig/rover_mapping.pc'
+[13.146s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages'
+[13.147s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_mapping', 'pythonpath')
+[13.148s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/hook/pythonpath.ps1'
+[13.155s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/hook/pythonpath.dsv'
+[13.159s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/hook/pythonpath.sh'
+[13.164s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mapping/bin'
+[13.165s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rover_mapping)
+[13.167s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/package.ps1'
+[13.173s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/package.dsv'
+[13.178s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/package.sh'
+[13.184s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/package.bash'
+[13.190s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mapping/share/rover_mapping/package.zsh'
+[13.197s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fatrat/ros2_ws/install/rover_mapping/share/colcon-core/packages/rover_mapping)
+[13.207s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fatrat/ros2_ws/src/rover_navigation' with build type 'ament_python'
+[13.210s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_navigation', 'ament_prefix_path')
+[13.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/hook/ament_prefix_path.ps1'
+[13.216s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/hook/ament_prefix_path.dsv'
+[13.221s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/hook/ament_prefix_path.sh'
+[13.228s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[13.229s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[14.908s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fatrat/ros2_ws/src/rover_navigation'
+[14.910s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[14.911s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[14.937s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm' for CMake module files
+[14.939s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fatrat/ros2_ws/src/rover_arm' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_arm build --build-base /home/fatrat/ros2_ws/build/rover_arm/build install --record /home/fatrat/ros2_ws/build/rover_arm/install.log --single-version-externally-managed install_data
+[14.941s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm' for CMake config files
+[14.945s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm/lib'
+[14.946s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm/bin'
+[14.946s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm/lib/pkgconfig/rover_arm.pc'
+[14.947s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages'
+[14.948s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_arm', 'pythonpath')
+[14.948s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/hook/pythonpath.ps1'
+[14.951s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/hook/pythonpath.dsv'
+[14.953s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/hook/pythonpath.sh'
+[14.956s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_arm/bin'
+[14.957s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rover_arm)
+[14.958s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/package.ps1'
+[14.961s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/package.dsv'
+[14.963s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/package.sh'
+[14.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/package.bash'
+[14.967s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_arm/share/rover_arm/package.zsh'
+[14.969s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fatrat/ros2_ws/install/rover_arm/share/colcon-core/packages/rover_arm)
+[14.972s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1' for CMake module files
+[14.976s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fatrat/ros2_ws/src/rover_control1' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_control1/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_control1 build --build-base /home/fatrat/ros2_ws/build/rover_control1/build install --record /home/fatrat/ros2_ws/build/rover_control1/install.log --single-version-externally-managed install_data
+[14.977s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1' for CMake config files
+[14.980s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1/lib'
+[14.981s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1/bin'
+[14.981s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1/lib/pkgconfig/rover_control1.pc'
+[14.982s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1/lib/python3.10/site-packages'
+[14.982s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_control1', 'pythonpath')
+[14.984s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/hook/pythonpath.ps1'
+[14.986s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/hook/pythonpath.dsv'
+[14.989s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/hook/pythonpath.sh'
+[14.995s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_control1/bin'
+[14.995s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rover_control1)
+[14.997s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/package.ps1'
+[15.000s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/package.dsv'
+[15.003s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/package.sh'
+[15.006s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/package.bash'
+[15.008s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_control1/share/rover_control1/package.zsh'
+[15.011s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fatrat/ros2_ws/install/rover_control1/share/colcon-core/packages/rover_control1)
+[15.014s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fatrat/ros2_ws/src/rover_vision' with build type 'ament_python'
+[15.015s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_vision', 'ament_prefix_path')
+[15.016s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/hook/ament_prefix_path.ps1'
+[15.019s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/hook/ament_prefix_path.dsv'
+[15.020s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/hook/ament_prefix_path.sh'
+[15.023s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[15.024s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[15.048s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission' for CMake module files
+[15.051s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fatrat/ros2_ws/src/rover_mission' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mission build --build-base /home/fatrat/ros2_ws/build/rover_mission/build install --record /home/fatrat/ros2_ws/build/rover_mission/install.log --single-version-externally-managed install_data
+[15.053s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission' for CMake config files
+[15.057s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission/lib'
+[15.058s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission/bin'
+[15.059s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission/lib/pkgconfig/rover_mission.pc'
+[15.061s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages'
+[15.061s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_mission', 'pythonpath')
+[15.062s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/hook/pythonpath.ps1'
+[15.065s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/hook/pythonpath.dsv'
+[15.067s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/hook/pythonpath.sh'
+[15.071s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_mission/bin'
+[15.072s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rover_mission)
+[15.073s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/package.ps1'
+[15.076s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/package.dsv'
+[15.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/package.sh'
+[15.081s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/package.bash'
+[15.083s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_mission/share/rover_mission/package.zsh'
+[15.086s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fatrat/ros2_ws/install/rover_mission/share/colcon-core/packages/rover_mission)
+[16.686s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fatrat/ros2_ws/src/rover_vision'
+[16.697s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[16.698s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[17.218s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fatrat/ros2_ws/src/rover_navigation': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_navigation build --build-base /home/fatrat/ros2_ws/build/rover_navigation/build install --record /home/fatrat/ros2_ws/build/rover_navigation/install.log --single-version-externally-managed install_data
+[18.761s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fatrat/ros2_ws/src/rover_vision': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_vision build --build-base /home/fatrat/ros2_ws/build/rover_vision/build install --record /home/fatrat/ros2_ws/build/rover_vision/install.log --single-version-externally-managed install_data
+[19.173s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation' for CMake module files
+[19.175s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fatrat/ros2_ws/src/rover_navigation' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_navigation build --build-base /home/fatrat/ros2_ws/build/rover_navigation/build install --record /home/fatrat/ros2_ws/build/rover_navigation/install.log --single-version-externally-managed install_data
+[19.177s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation' for CMake config files
+[19.187s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation/lib'
+[19.187s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation/bin'
+[19.188s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation/lib/pkgconfig/rover_navigation.pc'
+[19.189s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation/lib/python3.10/site-packages'
+[19.189s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_navigation', 'pythonpath')
+[19.190s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/hook/pythonpath.ps1'
+[19.193s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/hook/pythonpath.dsv'
+[19.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/hook/pythonpath.sh'
+[19.199s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_navigation/bin'
+[19.199s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rover_navigation)
+[19.201s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/package.ps1'
+[19.203s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/package.dsv'
+[19.207s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/package.sh'
+[19.209s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/package.bash'
+[19.212s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_navigation/share/rover_navigation/package.zsh'
+[19.214s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fatrat/ros2_ws/install/rover_navigation/share/colcon-core/packages/rover_navigation)
+[20.439s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision' for CMake module files
+[20.441s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fatrat/ros2_ws/src/rover_vision' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_vision/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_vision build --build-base /home/fatrat/ros2_ws/build/rover_vision/build install --record /home/fatrat/ros2_ws/build/rover_vision/install.log --single-version-externally-managed install_data
+[20.443s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision' for CMake config files
+[20.448s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision/lib'
+[20.449s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision/bin'
+[20.450s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision/lib/pkgconfig/rover_vision.pc'
+[20.452s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision/lib/python3.10/site-packages'
+[20.453s] Level 1:colcon.colcon_core.shell:create_environment_hook('rover_vision', 'pythonpath')
+[20.454s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/hook/pythonpath.ps1'
+[20.456s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/hook/pythonpath.dsv'
+[20.459s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/hook/pythonpath.sh'
+[20.464s] Level 1:colcon.colcon_core.environment:checking '/home/fatrat/ros2_ws/install/rover_vision/bin'
+[20.465s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rover_vision)
+[20.466s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/package.ps1'
+[20.468s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/package.dsv'
+[20.471s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/package.sh'
+[20.473s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/package.bash'
+[20.477s] INFO:colcon.colcon_core.shell:Creating package script '/home/fatrat/ros2_ws/install/rover_vision/share/rover_vision/package.zsh'
+[20.479s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fatrat/ros2_ws/install/rover_vision/share/colcon-core/packages/rover_vision)
+[20.480s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[20.482s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[20.482s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[20.483s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[20.509s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[20.509s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[20.510s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[20.571s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[20.572s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fatrat/ros2_ws/install/local_setup.ps1'
+[20.578s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/fatrat/ros2_ws/install/_local_setup_util_ps1.py'
+[20.588s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fatrat/ros2_ws/install/setup.ps1'
+[20.596s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fatrat/ros2_ws/install/local_setup.sh'
+[20.599s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/fatrat/ros2_ws/install/_local_setup_util_sh.py'
+[20.603s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fatrat/ros2_ws/install/setup.sh'
+[20.611s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fatrat/ros2_ws/install/local_setup.bash'
+[20.615s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fatrat/ros2_ws/install/setup.bash'
+[20.625s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fatrat/ros2_ws/install/local_setup.zsh'
+[20.629s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fatrat/ros2_ws/install/setup.zsh'
