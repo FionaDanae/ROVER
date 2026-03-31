@@ -1,0 +1,21 @@
+[8.770s] Invoking command in '/home/fatrat/ros2_ws/src/rover_mapping': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mapping build --build-base /home/fatrat/ros2_ws/build/rover_mapping/build install --record /home/fatrat/ros2_ws/build/rover_mapping/install.log --single-version-externally-managed install_data
+[11.237s] running egg_info
+[11.242s] writing ../../build/rover_mapping/rover_mapping.egg-info/PKG-INFO
+[11.243s] writing dependency_links to ../../build/rover_mapping/rover_mapping.egg-info/dependency_links.txt
+[11.245s] writing entry points to ../../build/rover_mapping/rover_mapping.egg-info/entry_points.txt
+[11.246s] writing requirements to ../../build/rover_mapping/rover_mapping.egg-info/requires.txt
+[11.260s] writing top-level names to ../../build/rover_mapping/rover_mapping.egg-info/top_level.txt
+[11.265s] reading manifest file '../../build/rover_mapping/rover_mapping.egg-info/SOURCES.txt'
+[11.274s] writing manifest file '../../build/rover_mapping/rover_mapping.egg-info/SOURCES.txt'
+[11.277s] running build
+[11.279s] running build_py
+[11.282s] running install
+[11.285s] running install_lib
+[11.300s] running install_data
+[11.305s] running install_egg_info
+[11.333s] removing '/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages/rover_mapping-0.0.0-py3.10.egg-info' (and everything under it)
+[11.336s] Copying ../../build/rover_mapping/rover_mapping.egg-info to /home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages/rover_mapping-0.0.0-py3.10.egg-info
+[11.345s] running install_scripts
+[11.627s] Installing mapping_node script to /home/fatrat/ros2_ws/install/rover_mapping/lib/rover_mapping
+[11.631s] writing list of installed files to '/home/fatrat/ros2_ws/build/rover_mapping/install.log'
+[13.242s] Invoked command in '/home/fatrat/ros2_ws/src/rover_mapping' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mapping build --build-base /home/fatrat/ros2_ws/build/rover_mapping/build install --record /home/fatrat/ros2_ws/build/rover_mapping/install.log --single-version-externally-managed install_data

@@ -1,0 +1,21 @@
+[6.847s] Invoking command in '/home/fatrat/ros2_ws/src/rover_mission': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mission build --build-base /home/fatrat/ros2_ws/build/rover_mission/build install --record /home/fatrat/ros2_ws/build/rover_mission/install.log --single-version-externally-managed install_data
+[8.774s] running egg_info
+[8.778s] writing ../../build/rover_mission/rover_mission.egg-info/PKG-INFO
+[8.780s] writing dependency_links to ../../build/rover_mission/rover_mission.egg-info/dependency_links.txt
+[8.781s] writing entry points to ../../build/rover_mission/rover_mission.egg-info/entry_points.txt
+[8.783s] writing requirements to ../../build/rover_mission/rover_mission.egg-info/requires.txt
+[8.784s] writing top-level names to ../../build/rover_mission/rover_mission.egg-info/top_level.txt
+[8.795s] reading manifest file '../../build/rover_mission/rover_mission.egg-info/SOURCES.txt'
+[8.802s] writing manifest file '../../build/rover_mission/rover_mission.egg-info/SOURCES.txt'
+[8.803s] running build
+[8.804s] running build_py
+[8.808s] running install
+[8.811s] running install_lib
+[8.821s] running install_data
+[8.823s] running install_egg_info
+[8.848s] removing '/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages/rover_mission-0.0.0-py3.10.egg-info' (and everything under it)
+[8.851s] Copying ../../build/rover_mission/rover_mission.egg-info to /home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages/rover_mission-0.0.0-py3.10.egg-info
+[8.866s] running install_scripts
+[9.026s] Installing mission_node script to /home/fatrat/ros2_ws/install/rover_mission/lib/rover_mission
+[9.034s] writing list of installed files to '/home/fatrat/ros2_ws/build/rover_mission/install.log'
+[9.251s] Invoked command in '/home/fatrat/ros2_ws/src/rover_mission' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_mission/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_mission build --build-base /home/fatrat/ros2_ws/build/rover_mission/build install --record /home/fatrat/ros2_ws/build/rover_mission/install.log --single-version-externally-managed install_data

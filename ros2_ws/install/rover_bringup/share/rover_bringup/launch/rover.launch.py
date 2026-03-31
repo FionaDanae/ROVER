@@ -30,11 +30,10 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # cuando tengas el brazo lo descomentas
-        # Node(
-        #     package='rover_arm',
-        #     executable='arm_node',
-        #     output='screen'
-        # ),
+        Node(
+            package='rover_arm',
+            executable='arm_node',
+            output='screen'
+        ),
 
     ])

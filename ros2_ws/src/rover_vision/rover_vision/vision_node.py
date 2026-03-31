@@ -13,10 +13,10 @@ class VisionNode(Node):
 
         self.publisher_ = self.create_publisher(String, 'detections', 10)
 
-        # Raspberry Pi Camera Module 3
-        self.cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
+        # Webcam Logitech
+        self.cap = cv2.VideoCapture(0)
 
-        # resolución optimizada
+        # resolución estable
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
         self.cap.set(cv2.CAP_PROP_FPS, 30)
@@ -58,7 +58,7 @@ class VisionNode(Node):
         self.detect_color(mask_blue, frame, "azul")
         self.detect_color(mask_green, frame, "verde")
 
-        # mostrar solo si hay pantalla
+        # solo muestra si hay pantalla
         try:
             cv2.imshow("Vision", frame)
             cv2.waitKey(1)

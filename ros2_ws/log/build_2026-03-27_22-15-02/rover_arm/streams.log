@@ -1,0 +1,20 @@
+[8.558s] Invoking command in '/home/fatrat/ros2_ws/src/rover_arm': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_arm build --build-base /home/fatrat/ros2_ws/build/rover_arm/build install --record /home/fatrat/ros2_ws/build/rover_arm/install.log --single-version-externally-managed install_data
+[11.078s] running egg_info
+[11.079s] writing ../../build/rover_arm/rover_arm.egg-info/PKG-INFO
+[11.080s] writing dependency_links to ../../build/rover_arm/rover_arm.egg-info/dependency_links.txt
+[11.080s] writing entry points to ../../build/rover_arm/rover_arm.egg-info/entry_points.txt
+[11.081s] writing requirements to ../../build/rover_arm/rover_arm.egg-info/requires.txt
+[11.081s] writing top-level names to ../../build/rover_arm/rover_arm.egg-info/top_level.txt
+[11.089s] reading manifest file '../../build/rover_arm/rover_arm.egg-info/SOURCES.txt'
+[11.094s] writing manifest file '../../build/rover_arm/rover_arm.egg-info/SOURCES.txt'
+[11.095s] running build
+[11.095s] running build_py
+[11.097s] running install
+[11.098s] running install_lib
+[11.109s] running install_data
+[11.110s] running install_egg_info
+[11.125s] removing '/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages/rover_arm-0.0.0-py3.10.egg-info' (and everything under it)
+[11.127s] Copying ../../build/rover_arm/rover_arm.egg-info to /home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages/rover_arm-0.0.0-py3.10.egg-info
+[11.134s] running install_scripts
+[11.242s] writing list of installed files to '/home/fatrat/ros2_ws/build/rover_arm/install.log'
+[11.493s] Invoked command in '/home/fatrat/ros2_ws/src/rover_arm' returned '0': PYTHONPATH=/home/fatrat/ros2_ws/build/rover_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fatrat/ros2_ws/install/rover_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/rover_arm build --build-base /home/fatrat/ros2_ws/build/rover_arm/build install --record /home/fatrat/ros2_ws/build/rover_arm/install.log --single-version-externally-managed install_data
