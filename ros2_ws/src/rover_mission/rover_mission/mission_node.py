@@ -5,74 +5,114 @@ from geometry_msgs.msg import Twist
 import time
 import math
 
+
 class MissionNode(Node):
 
     def __init__(self):
         super().__init__('mission_node')
 
-        self.subscription = self.create_subscription(String, '/detections', self.detection_callback, 10)
+        self.declare_parameter('loop_period_s', 0.1)
+        self.declare_parameter('image_width_px', 640)
+        self.declare_parameter('max_targets', 10)
+        self.declare_parameter('target_lock_count', 6)
+        self.declare_parameter('action_timeout_s', 12.0)
+        self.declare_parameter('max_rocks', 10)
+
+        self._image_width_px = (
+            self.get_parameter('image_width_px').get_parameter_value().integer_value
+        )
+        self._max_targets = (
+            self.get_parameter('max_targets').get_parameter_value().integer_value
+        )
+        self._target_lock_count = (
+            self.get_parameter('target_lock_count').get_parameter_value().integer_value
+        )
+        self._action_timeout_s = (
+            self.get_parameter('action_timeout_s').get_parameter_value().double_value
+        )
+        self.max_rocks = (
+            self.get_parameter('max_rocks').get_parameter_value().integer_value
+        )
+
+        self.subscription = self.create_subscription(
+            String, '/detections', self.detection_callback, 10
+        )
         self.state_sub = self.create_subscription(String, '/set_state', self.state_callback, 10)
-        
+
         self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
         self.arm_pub = self.create_publisher(String, '/arm_cmd', 10)
 
         self.state = "explore"
         self.last_detection = None
-        self.last_time = time.time()
+        self._last_detection_time_s = 0.0
         self.targets = []
         self.current_target = None
 
         self.collected_rocks = 0
-        self.max_rocks = 10
 
         self.x = 0.0
         self.y = 0.0
         self.theta = 0.0
         self.home_x = 0.0
         self.home_y = 0.0
-        self.last_action_time = time.time()
-        
-        # Variables para el mantenimiento dinámico
-        self.panel_height = None 
+        self._last_action_time_s = time.monotonic()
+        self._last_loop_time = self.get_clock().now()
+
+        self.panel_height = None
+        self._last_panel_search_log_s = 0.0
 
         self.get_logger().info("FAT RAT - Mission Node Iniciado (Modo 100% Autónomo)")
-        self.timer = self.create_timer(0.1, self.loop)
+        loop_period_s = (
+            self.get_parameter('loop_period_s').get_parameter_value().double_value
+        )
+        self.timer = self.create_timer(loop_period_s, self.loop)
 
     def state_callback(self, msg):
         self.state = msg.data
-        self.last_action_time = time.time()
+        self._last_action_time_s = time.monotonic()
         self.get_logger().info(f"*** ESTADO CAMBIADO MANUALMENTE A: {self.state} ***")
 
     def detection_callback(self, msg):
         if not msg.data:
             return
-        
+
         self.last_detection = msg.data
-        self.last_time = time.time()
+        self._last_detection_time_s = time.monotonic()
 
-        try:
-            data_parts = msg.data.split(',')
-            label = data_parts[0]
-            cx = int(data_parts[1]) if len(data_parts) > 1 and data_parts[1] != "none" else 0
-            
-            if "fin" in msg.data.lower():
-                self.get_logger().info("FIN detectado → Iniciando retorno a la base")
-                self.state = "return"
-                return
+        data_parts = [p.strip() for p in msg.data.split(',') if p.strip()]
+        if not data_parts:
+            return
 
-            if "roca" in label.lower() or "rojo" in msg.data.lower():
-                self.targets.append(cx)
-                if len(self.targets) > 10:
-                    self.targets.pop(0)
-                    
-            if "panel" in label.lower():
-                # La visión pasa la altura aproximada (ej. panel,320,800)
+        label = data_parts[0].lower()
+
+        if label == 'persona':
+            self.state = 'emergency_stop'
+            self._last_action_time_s = time.monotonic()
+            return
+
+        if label == 'fin' or 'fin' in msg.data.lower():
+            self.get_logger().info("FIN detectado → Iniciando retorno a la base")
+            self.state = "return"
+            self._last_action_time_s = time.monotonic()
+            return
+
+        if label == 'panel' and len(data_parts) >= 3:
+            try:
                 self.panel_height = int(data_parts[2])
+            except ValueError:
+                self.panel_height = None
+            return
 
-        except Exception as e:
-            pass
+        if label == 'roca' and len(data_parts) >= 2:
+            try:
+                cx = int(data_parts[1])
+            except ValueError:
+                return
+            self.targets.append(cx)
+            if len(self.targets) > self._max_targets:
+                self.targets.pop(0)
 
-    def update_pose(self, linear, angular, dt=0.1):
+    def update_pose(self, linear, angular, dt):
         self.theta += angular * dt
         self.x += linear * math.cos(self.theta) * dt
         self.y += linear * math.sin(self.theta) * dt
@@ -103,38 +143,51 @@ class MissionNode(Node):
         self.get_logger().info(f"IK Calculado para Z={target_z}mm -> Hombro:{pwm_hombro}, Codo:{pwm_codo}")
 
     def loop(self):
-        msg = Twist()
+        now = self.get_clock().now()
+        dt = (now - self._last_loop_time).nanoseconds / 1e9
+        if dt <= 0.0:
+            dt = 0.0
+        self._last_loop_time = now
 
-        if time.time() - self.last_action_time > 12 and self.state in ["explore", "approach"]:
+        msg = Twist()
+        now_s = time.monotonic()
+        image_center = max(float(self._image_width_px) / 2.0, 1.0)
+
+        if (
+            now_s - self._last_action_time_s > self._action_timeout_s
+            and self.state in ["explore", "approach"]
+        ):
             self.state = "explore"
             self.targets.clear()
             self.current_target = None
-            self.last_action_time = time.time()
+            self._last_action_time_s = now_s
 
         if self.state == "explore":
             msg.linear.x = 0.18
             msg.angular.z = 0.25
-            
-            if len(self.targets) > 5:
-                self.current_target = min(self.targets, key=lambda x: abs(x - 160))
+
+            if len(self.targets) >= self._target_lock_count:
+                self.current_target = min(
+                    self.targets, key=lambda x: abs(x - image_center)
+                )
                 self.state = "approach"
-                self.last_action_time = time.time()
+                self._last_action_time_s = now_s
 
         elif self.state == "approach":
-            if time.time() - self.last_time > 1.5:
+            if now_s - self._last_detection_time_s > 1.5:
                 self.state = "explore"
                 return
 
             cx = self.current_target
-            error = cx - 160
-            linear_speed = max(0.08, 0.25 - abs(error)/200)
+            error = cx - image_center
+            linear_speed = max(0.08, 0.25 - abs(error) / 200.0)
 
             if abs(error) < 15:
                 msg.linear.x = linear_speed
                 msg.angular.z = 0.0
-                if time.time() - self.last_time > 1.8:
+                if now_s - self._last_detection_time_s > 1.8:
                     self.state = "collect"
-                    self.last_action_time = time.time()
+                    self._last_action_time_s = now_s
             else:
                 msg.linear.x = 0.0
                 msg.angular.z = max(min(-error / 140.0, 0.5), -0.5)
@@ -142,19 +195,24 @@ class MissionNode(Node):
         elif self.state == "collect":
             msg.linear.x = 0.0
             msg.angular.z = 0.0
-            tiempo_recoleccion = time.time() - self.last_action_time
-            
+            tiempo_recoleccion = now_s - self._last_action_time_s
+
             if tiempo_recoleccion < 0.5:
                 self.arm_pub.publish(String(data="ARM:DEPLOY"))
             elif 2.0 < tiempo_recoleccion < 2.5:
                 self.arm_pub.publish(String(data="ARM:STOW"))
             elif tiempo_recoleccion > 4.0:
                 self.collected_rocks += 1
-                self.get_logger().info(f"Roca recolectada ({self.collected_rocks}/{self.max_rocks})")
+                self.get_logger().info(
+                    f"Roca recolectada ({self.collected_rocks}/{self.max_rocks})"
+                )
                 self.targets.clear()
                 self.current_target = None
-                self.state = "explore" 
-                self.last_action_time = time.time()
+                if self.collected_rocks >= self.max_rocks:
+                    self.state = "return"
+                else:
+                    self.state = "explore"
+                self._last_action_time_s = now_s
 
         elif self.state == "return":
             dx = self.home_x - self.x
@@ -168,41 +226,42 @@ class MissionNode(Node):
                 msg.angular.z = max(min(angle_error, 0.4), -0.4)
             else:
                 self.state = "deposit"
-                self.last_action_time = time.time()
+                self._last_action_time_s = now_s
 
         elif self.state == "deposit":
             msg.linear.x = 0.0
             msg.angular.z = 0.0
-            tiempo_deposito = time.time() - self.last_action_time
+            tiempo_deposito = now_s - self._last_action_time_s
 
             if tiempo_deposito < 1.0:
-                self.arm_pub.publish(String(data="ARM:SET:1,450")) 
+                self.arm_pub.publish(String(data="ARM:SET:1,450"))
                 self.arm_pub.publish(String(data="ARM:SET:2,200"))
             elif 3.0 < tiempo_deposito < 3.5:
-                self.arm_pub.publish(String(data="ARM:SET:5,110")) 
+                self.arm_pub.publish(String(data="ARM:SET:5,110"))
             elif tiempo_deposito > 5.0:
-                self.get_logger().info(f"Depósito completado en Contenedor.")
+                self.get_logger().info("Depósito completado en Contenedor.")
                 self.arm_pub.publish(String(data="ARM:HOME"))
                 self.state = "finished"
 
         elif self.state == "mantenimiento":
             msg.linear.x = 0.0
             msg.angular.z = 0.0
-            
+
             if self.panel_height is None:
-                self.get_logger().info("Buscando panel de mantenimiento...", throttle_duration_sec=2)
+                if now_s - self._last_panel_search_log_s > 2.0:
+                    self.get_logger().info("Buscando panel de mantenimiento...")
+                    self._last_panel_search_log_s = now_s
                 return
 
-            t_mant = time.time() - self.last_action_time
-            base_z = self.panel_height 
-            
+            t_mant = now_s - self._last_action_time_s
+            base_z = self.panel_height
+
             if t_mant < 1.0:
                 self.get_logger().info("Posicionando brazo para Interruptor 1...")
-                # Usamos nuestra nueva función IK
-                self.send_arm_to_height(base_z + 50) 
+                self.send_arm_to_height(base_z + 50)
             elif 3.0 < t_mant < 3.5:
                 self.get_logger().info("Posicionando brazo para Botón 1...")
-                self.send_arm_to_height(base_z - 50) 
+                self.send_arm_to_height(base_z - 50)
             elif 5.0 < t_mant < 5.5:
                 self.get_logger().info("Secuencia finalizada.")
                 self.arm_pub.publish(String(data="ARM:HOME"))
@@ -212,10 +271,16 @@ class MissionNode(Node):
             msg.linear.x = 0.0
             msg.angular.z = 0.0
 
+        elif self.state == "emergency_stop":
+            msg.linear.x = 0.0
+            msg.angular.z = 0.0
+            if now_s - self._last_action_time_s > 0.5:
+                self.arm_pub.publish(String(data="ARM:HOME"))
+
         if abs(msg.angular.z) > 0.5:
             msg.angular.z = 0.5 * (msg.angular.z / abs(msg.angular.z))
 
-        self.update_pose(msg.linear.x, msg.angular.z)
+        self.update_pose(msg.linear.x, msg.angular.z, dt)
         self.publisher_.publish(msg)
 
 def main(args=None):

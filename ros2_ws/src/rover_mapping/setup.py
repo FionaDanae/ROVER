@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-	    'mapping_node = rover_mapping.mapping_node:main',
+            'mapping_node = rover_mapping.mapping_node:main',
         ],
     },
 )
