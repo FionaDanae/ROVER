@@ -1,3 +1,0 @@
-[console_scripts]
-monitor_node = rover_monitor.monitor_node:main
-

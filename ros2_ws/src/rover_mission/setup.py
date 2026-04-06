@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-	    'mission_node =rover_mission.mission_node:main',
+            'mission_node = rover_mission.mission_node:main',
         ],
     },
 )

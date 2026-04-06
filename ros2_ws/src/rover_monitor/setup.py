@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'matplotlib'],
     zip_safe=True,
     maintainer='fatrat',
     maintainer_email='fatrat@todo.todo',
@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-	    'monitor_node = rover_monitor.monitor_node:main',
+            'monitor_node = rover_monitor.monitor_node:main',
         ],
     },
 )
