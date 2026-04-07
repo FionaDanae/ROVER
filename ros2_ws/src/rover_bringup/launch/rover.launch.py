@@ -24,9 +24,9 @@ def generate_launch_description():
             executable='sllidar_node',
             name='sllidar_node',
             parameters=[{'channel_type': 'serial',
-                         'serial_port': '/dev/ttyUSB1', 
+                         'serial_port': '/dev/ttyUSB0', 
                          'serial_baudrate': 115200,
-                         'frame_id': 'laser',
+                         'frame_id': 'laser_frame',
                          'inverted': False,
                          'angle_compensate': True}],
             output='screen'
@@ -37,7 +37,7 @@ def generate_launch_description():
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments=['0', '0', '0.2', '0', '0', '0', 'base_link', 'laser']
+            arguments=['0', '0', '0.2', '0', '0', '0', 'base_link', 'laser_frame']
         ),
 
         IncludeLaunchDescription(

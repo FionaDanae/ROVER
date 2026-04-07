@@ -4,6 +4,8 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 import time
 import math
+from tf2_ros import Buffer, TransformListener
+from tf2_ros import LookupException, ConnectivityException, ExtrapolationException
 
 class MissionNode(Node):
 
@@ -31,6 +33,12 @@ class MissionNode(Node):
         self.home_x = 0.0
         self.home_y = 0.0
         self.last_action_time = time.time()
+        
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+        
+        self.mission_start = time.time()
+        self.max_mission_time = 480 #número de segundos
         
         # Variables para el mantenimiento dinámico
         self.panel_height = None 
@@ -76,6 +84,21 @@ class MissionNode(Node):
         self.theta += angular * dt
         self.x += linear * math.cos(self.theta) * dt
         self.y += linear * math.sin(self.theta) * dt
+        
+    def update_pose(self, linear, angular, dt=0.1):
+        try:
+            self.theta += angular * dt
+            
+            self.x += trans.transform.translation.x
+            self.y += trans.transform.translation.y
+            
+            q = trans.transform.rotation
+            siny_cosp = 2 * (q.w * q.z + q.x * q.y)
+            cosy_cosp = 1 -2 * (q.y * q.y + q.z * q.z)
+            self.theta = math.atan2(siny_cosp, cosy_cosp)
+            
+        except (LookupException, ConnectivityException, ExtrapolationException):
+            pass
 
     # =======================================================
     # FUNCIÓN DE CINEMÁTICA INVERSA (IK) SIMPLIFICADA
@@ -105,6 +128,10 @@ class MissionNode(Node):
     def loop(self):
         msg = Twist()
 
+        if time.time() - self.mission_start > self.max_mission_time:
+            self.get_logger().info("de regreso pa, se le acabó el tiempo")
+            self.state = "return"
+        
         if time.time() - self.last_action_time > 12 and self.state in ["explore", "approach"]:
             self.state = "explore"
             self.targets.clear()
@@ -116,9 +143,11 @@ class MissionNode(Node):
             msg.angular.z = 0.25
             
             if len(self.targets) > 5:
-                self.current_target = min(self.targets, key=lambda x: abs(x - 160))
+                CENTER_X = 320
+                self.current_target = min(self.targets, key=lambda x: abs(x - CENTER_X))
                 self.state = "approach"
                 self.last_action_time = time.time()
+                
 
         elif self.state == "approach":
             if time.time() - self.last_time > 1.5:
@@ -126,7 +155,7 @@ class MissionNode(Node):
                 return
 
             cx = self.current_target
-            error = cx - 160
+            error = cx - 320
             linear_speed = max(0.08, 0.25 - abs(error)/200)
 
             if abs(error) < 15:
@@ -223,7 +252,7 @@ class MissionNode(Node):
         if abs(msg.angular.z) > 0.5:
             msg.angular.z = 0.5 * (msg.angular.z / abs(msg.angular.z))
 
-        self.update_pose(msg.linear.x, msg.angular.z)
+        self.update_pose_from_tf()
         self.publisher_.publish(msg)
 
 def main(args=None):

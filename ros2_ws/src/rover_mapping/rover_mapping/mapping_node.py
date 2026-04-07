@@ -12,7 +12,7 @@ class MappingNode(Node):
     def __init__(self):
         super().__init__('mapping_node')
 
-        self.subscription = self.create_subscription(String, '/detections', self.detection_callback, 10)
+        self.subscription = self.create_subscription(String, '/detections', self.callback, 10)
         self.sub_imu = self.create_subscription(String, '/terrain_status', self.terrain_cb, 10)
         
         # Configuración de TF2 (Para escuchar la posición desde SLAM)
@@ -85,7 +85,7 @@ class MappingNode(Node):
         angle = (cx - width/2) * (fov / width)
         angle_rad = math.radians(angle)
 
-        distance = 1.0 
+        distance = 0.8 
         rock_x = self.x + distance * math.cos(self.theta + angle_rad)
         rock_y = self.y + distance * math.sin(self.theta + angle_rad)
 
@@ -95,7 +95,8 @@ class MappingNode(Node):
             "color": color, 
             "tamano": tamano, 
             "forma": "irregular",
-            "textura": textura 
+            "textura": textura,
+            "timestamp": time.time() 
         }
 
         is_new = True
@@ -107,6 +108,10 @@ class MappingNode(Node):
         if is_new:
             self.map_rocks.append(rock)
             self.get_logger().info(f"Roca mapeada: {rock}")
+
+	if "panel" in label.lower():
+            self.state = "mantenimiento"
+            self.last_action_time = time.time()
 
     def destroy_node(self):
         with open("mapa_lunar_oficial.txt", "w") as f:
