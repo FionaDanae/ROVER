@@ -48,7 +48,7 @@ class VisionNode(Node):
                     msg_fin.data = "fin,320,negro,N/A" 
                     self.publisher_.publish(msg_fin)
                     cv2.putText(frame, "LETRERO FIN ENCONTRADO", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
-            except Exception as e:
+            except Exception:
                 pass 
 
         # =======================================================
@@ -70,17 +70,15 @@ class VisionNode(Node):
         # =======================================================
         # DETECCIÓN DEL PANEL DE MANTENIMIENTO
         # =======================================================
-        # Filtro HSV para aislar las zonas grises
         mask_gray = cv2.inRange(hsv, np.array([0, 0, 50]), np.array([180, 50, 200]))
         contours_gray, _ = cv2.findContours(mask_gray, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         
         if contours_gray:
             largest_gray = max(contours_gray, key=cv2.contourArea)
-            if cv2.contourArea(largest_gray) > 5000: # Validación de tamaño mínimo
+            if cv2.contourArea(largest_gray) > 5000:
                 x, y, w, h = cv2.boundingRect(largest_gray)
                 cx = int(x + w/2)
                 
-                # Mapeo de pixeles en Y a altura en mm (ajustar constantes tras pruebas físicas)
                 altura_estimada_mm = int(1000 - (y * 2)) 
                 
                 msg_panel = String()
@@ -90,10 +88,77 @@ class VisionNode(Node):
                 cv2.rectangle(frame, (x,y), (x+w,y+h), (255,0,255), 2)
                 cv2.putText(frame, f"PANEL: {altura_estimada_mm}mm", (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,255), 2)
 
+                # =======================================================
+                # DETECCIÓN DE CONTROLES (Dentro del área del Panel)
+                # =======================================================
+                panel_roi = frame[y:y+h, x:x+w]
+                
+                if panel_roi.size > 0:
+                    gray_panel = cv2.cvtColor(panel_roi, cv2.COLOR_BGR2GRAY)
+                    blur = cv2.GaussianBlur(gray_panel, (5,5), 0)
+              
+                    # --- DETECCIÓN DE BOTONES ---
+                    circles = cv2.HoughCircles(
+                        blur,
+                        cv2.HOUGH_GRADIENT,
+                        dp=1.2,
+                        minDist=40,
+                        param1=50,
+                        param2=30,
+                        minRadius=10,
+                        maxRadius=50
+                    )
+
+                    if circles is not None:
+                        circles = np.uint16(np.around(circles))
+                        for c in circles[0, :2]:
+                            cx_btn = int(x + c[0])
+                            cy_btn = int(y + c[1])
+                            r = c[2]
+                            
+                            roi_btn = gray_panel[max(c[1]-r,0):c[1]+r, max(c[0]-r,0):c[0]+r]
+                            estado = "on" if np.mean(roi_btn) > 150 else "off"
+
+                            msg = String()
+                            msg.data = f"control,boton,{cx_btn},{estado}"
+                            self.publisher_.publish(msg)
+
+                            cv2.circle(frame, (cx_btn, cy_btn), r, (0,255,255), 2)
+                            cv2.putText(frame, f"BTN {estado}", (cx_btn, cy_btn), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
+
+                    # --- DETECCIÓN DE INTERRUPTORES ---
+                    edges = cv2.Canny(blur, 50, 150)
+                    contours_ctrl, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                    switches_detected = 0
+
+                    for cnt in contours_ctrl:
+                        area = cv2.contourArea(cnt)
+                        if area < 300:
+                            continue
+
+                        x2, y2, w2, h2 = cv2.boundingRect(cnt)
+                        aspect_ratio = h2 / float(w2) if w2 > 0 else 0
+
+                        if aspect_ratio > 1.5 or aspect_ratio < 0.5:
+                            cx_sw = int(x + x2 + w2/2)
+                            estado = "on" if h2 > w2 else "off"
+
+                            msg = String()
+                            msg.data = f"control,interruptor,{cx_sw},{estado}"
+                            self.publisher_.publish(msg)
+
+                            cv2.rectangle(frame, (x + x2, y + y2), (x + x2 + w2, y + y2 + h2), (255,255,0), 2)
+                            cv2.putText(frame, f"SW {estado}", (x + x2, y + y2 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,0), 2)
+                            switches_detected += 1
+
+                        if switches_detected >= 2:
+                            break
+
+        # Mostrar imagen
         try:
             cv2.imshow("Vision - Fat Rat", frame)
             cv2.waitKey(1)
-        except:
+        except Exception:
             pass
 
     def detect_color(self, mask, frame, color_name):
@@ -105,50 +170,70 @@ class VisionNode(Node):
         largest_contour = max(contours, key=cv2.contourArea)
         area = cv2.contourArea(largest_contour)
 
-        # Filtro para evadir ruido
         if area > 500:
             x, y, w, h = cv2.boundingRect(largest_contour)
             cx = int(x + w/2)
-            
-            # Estimación de volúmenes
+
+            # ============================
+            # TAMAÑO
+            # ============================
             if area < 1500: tamano = "5cm3"
             elif area < 3000: tamano = "7cm3"
             elif area < 5000: tamano = "10cm3"
             else: tamano = "12cm3"
 
-            # NUEVA LÓGICA DE TEXTURA (Varianza Laplaciana)
-            # Extraemos la Región de Interés (ROI) de la roca
+            # ============================
+            # TEXTURA
+            # ============================
             roi_color = frame[y:y+h, x:x+w]
-            
-            # Prevenir errores si el ROI se sale del cuadro
+
             if roi_color.size > 0:
                 roi_gray = cv2.cvtColor(roi_color, cv2.COLOR_BGR2GRAY)
-                
-                # Calculamos la varianza del Laplaciano
                 varianza = cv2.Laplacian(roi_gray, cv2.CV_64F).var()
-                
-                # Umbral empírico: Deberás calibrar este número "300"
-                if varianza > 300:
-                    textura = "rugosa"
-                else:
-                    textura = "lisa"
+                textura = "rugosa" if varianza > 300 else "lisa"
             else:
                 textura = "no_determinada"
 
+            # ============================
+            # FORMA
+            # ============================
+            peri = cv2.arcLength(largest_contour, True)
+            approx = cv2.approxPolyDP(largest_contour, 0.04 * peri, True)
+
+            num_vertices = len(approx)
+            aspect_ratio = w / float(h) if h > 0 else 0
+
+            if num_vertices >= 8:
+                forma = "esferica"
+            elif 4 <= num_vertices <= 6:
+                forma = "cubica"
+            elif aspect_ratio > 1.5 or aspect_ratio < 0.67:
+                forma = "alargada"
+            else:
+                forma = "irregular"
+
+            # ============================
+            # PUBLICACIÓN
+            # ============================
             msg = String()
-            msg.data = f"roca,{cx},{color_name},{tamano},{textura}"
+            msg.data = f"roca,{cx},{color_name},{tamano},{textura},{forma}"
             self.publisher_.publish(msg)
 
-            # Dibujamos en pantalla para monitoreo
+            # Visualización
             cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 2)
-            cv2.putText(frame, f"{color_name} {tamano} {textura}", (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+            cv2.putText(frame, f"{color_name} {forma}", (x,y-10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
 
 def main(args=None):
     rclpy.init(args=args)
     node = VisionNode()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

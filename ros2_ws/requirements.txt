@@ -242,14 +242,12 @@ rosidl-typesupport-fastrtps-cpp==2.2.4
 rosidl-typesupport-introspection-c==3.1.8
 rosidl-typesupport-introspection-cpp==3.1.8
 rospkg-modules==1.6.1
-rover-arm==0.0.0
-rover-bringup==0.0.0
-rover-control1==0.0.0
-rover-mapping==0.0.0
-rover-mission==0.0.0
-rover-monitor==0.0.0
-rover-navigation==0.0.0
-rover-vision==0.0.0
+-e git+ssh://git@github.com/FionaDanae/ROVER.git@f93c256769ed7b80a9d03f916d30ab48388e052c#egg=rover_bringup&subdirectory=ros2_ws/build/rover_bringup
+-e git+ssh://git@github.com/FionaDanae/ROVER.git@f93c256769ed7b80a9d03f916d30ab48388e052c#egg=rover_control1&subdirectory=ros2_ws/build/rover_control1
+-e git+ssh://git@github.com/FionaDanae/ROVER.git@f93c256769ed7b80a9d03f916d30ab48388e052c#egg=rover_mapping&subdirectory=ros2_ws/build/rover_mapping
+-e git+ssh://git@github.com/FionaDanae/ROVER.git@f93c256769ed7b80a9d03f916d30ab48388e052c#egg=rover_mission&subdirectory=ros2_ws/build/rover_mission
+-e git+ssh://git@github.com/FionaDanae/ROVER.git@f93c256769ed7b80a9d03f916d30ab48388e052c#egg=rover_monitor&subdirectory=ros2_ws/build/rover_monitor
+-e git+ssh://git@github.com/FionaDanae/ROVER.git@f93c256769ed7b80a9d03f916d30ab48388e052c#egg=rover_vision&subdirectory=ros2_ws/build/rover_vision
 RPi.GPIO==0.7.1a4
 rpyutils==0.2.2
 rqt-action==2.0.1
@@ -280,6 +278,7 @@ smclib==4.1.4
 snowballstemmer==2.2.0
 soupsieve==2.3.1
 sros2==0.10.9
+ssh-import-id==5.11
 statistics-msgs==1.2.2
 std-msgs==4.9.1
 std-srvs==4.9.1
@@ -288,7 +287,7 @@ sympy==1.14.0
 systemd-python==234
 teleop-twist-keyboard==2.4.1
 tf-transformations==1.1.1
-tf2-geometry-msgs==0.25.19
+tf2-geometry-msgs==0.25.20
 tf2-kdl==0.25.19
 tf2-msgs==0.25.19
 tf2-py==0.25.19

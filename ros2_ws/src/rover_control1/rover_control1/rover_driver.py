@@ -9,7 +9,7 @@ class HardwareBridge(Node):
     def __init__(self):
         super().__init__('hardware_bridge')
         try:
-            self.ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=0.05)
+            self.ser = serial.Serial('/dev/rover_esp32', 115200, timeout=0.05)
             self.get_logger().info("Conectado a la ESP32 (Motores + Servos + IMU)")
         except:
             self.ser = None

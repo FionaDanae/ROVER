@@ -6,6 +6,7 @@ from ament_index_python.packages import get_package_share_directory
 import os
 
 def generate_launch_description():
+
     slam_launch_path = os.path.join(
         get_package_share_directory('slam_toolbox'),
         'launch',
@@ -13,35 +14,40 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        Node(package='rover_vision', executable='vision_node', output='screen'),
-        Node(package='rover_mission', executable='mission_node', output='screen'),
-        Node(package='rover_mapping', executable='mapping_node', output='screen'),
-        Node(package='rover_control1', executable='rover_driver', output='screen'),
-        Node(package='rover_monitor', executable='monitor_node', output='screen'),
 
+        # LIDAR
         Node(
-            package='sllidar_ros2',
-            executable='sllidar_node',
-            name='sllidar_node',
-            parameters=[{'channel_type': 'serial',
-                         'serial_port': '/dev/ttyUSB0', 
-                         'serial_baudrate': 115200,
-                         'frame_id': 'laser_frame',
-                         'inverted': False,
-                         'angle_compensate': True}],
-            output='screen'
+    	    package='rplidar_ros',
+    	    executable='rplidar_composition',
+    	    name='rplidar_node',
+    	    parameters=[{
+            	'serial_port': '/dev/rover_lidar',
+            	'serial_baudrate': 115200,
+            	'frame_id': 'laser_frame',
+            	'angle_compensate': True,
+            	'auto_start': True
+    	    }],
+    	    output='screen'
         ),
 
-        # Transformación estática (Ajusta la altura en Z, aquí puse 0.2 metros)
-        # Define que el 'laser' está pegado al 'base_link' (centro del robot)
+        # TF laser -> robot
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
             arguments=['0', '0', '0.2', '0', '0', '0', 'base_link', 'laser_frame']
         ),
 
+        # SLAM
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(slam_launch_path),
             launch_arguments={'use_sim_time': 'false'}.items()
-        )
+        ),
+
+        # NODOS
+        Node(package='rover_control1', executable='rover_driver', output='screen'),
+        Node(package='rover_vision', executable='vision_node', output='screen'),
+        Node(package='rover_mapping', executable='mapping_node', output='screen'),
+        Node(package='rover_mission', executable='mission_node', output='screen'),
+        Node(package='rover_monitor', executable='monitor_node', output='screen'),
+
     ])
