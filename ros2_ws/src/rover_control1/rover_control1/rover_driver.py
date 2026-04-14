@@ -18,8 +18,9 @@ class HardwareBridge(Node):
         self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10)
         self.arm_sub = self.create_subscription(String, '/arm_cmd', self.arm_callback, 10)
         
-        # Publicador de terrenos recuperado
+        # Publicadores
         self.terrain_pub = self.create_publisher(String, '/terrain_status', 10)
+        self.weight_pub = self.create_publisher(String, '/rock_weight', 10)
         
         self.timer = self.create_timer(0.05, self.read_serial)
 
@@ -40,10 +41,15 @@ class HardwareBridge(Node):
                 line = self.ser.readline().decode('utf-8').strip()
                 if line.startswith("I,"):
                     parts = line.split(',')
-                    if len(parts) == 3:
+                    if len(parts) >= 3:
                         pitch = float(parts[1])
                         roll = float(parts[2])
                         self.analyze_terrain(pitch, roll)
+                    if len(parts) >= 4:
+                        peso = float(parts[3])
+                        msg_peso = String()
+                        msg_peso.data = str(peso)
+                        self.weight_pub.publish(msg_peso)
         except Exception as e:
             pass
 

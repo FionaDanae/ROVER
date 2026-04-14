@@ -6,6 +6,7 @@ from std_msgs.msg import String
 import cv2
 import numpy as np
 import pytesseract
+import threading
 
 class VisionNode(Node):
 
@@ -19,11 +20,24 @@ class VisionNode(Node):
         self.cap.set(cv2.CAP_PROP_FPS, 30)
 
         self.frame_count = 0
+        self.ocr_running = False
 
         if not self.cap.isOpened():
             self.get_logger().error("No se pudo abrir la cámara")
 
         self.timer = self.create_timer(0.1, self.process_frame)
+
+    def run_ocr(self, img_thresh):
+        try:
+            texto_detectado = pytesseract.image_to_string(img_thresh, config='--psm 11').strip().upper()
+            if "FIN" in texto_detectado:
+                msg_fin = String()
+                msg_fin.data = "fin,320,negro,N/A" 
+                self.publisher_.publish(msg_fin)
+        except Exception:
+            pass 
+        finally:
+            self.ocr_running = False
 
     def process_frame(self):
         ret, frame = self.cap.read()
@@ -33,23 +47,15 @@ class VisionNode(Node):
         self.frame_count += 1
 
         # =======================================================
-        # OCR (Letrero FIN) - Se ejecuta cada 15 frames
+        # OCR (Letrero FIN) - Se ejecuta asíncronamente
         # =======================================================
-        if self.frame_count % 15 == 0:
+        if self.frame_count % 15 == 0 and not self.ocr_running:
+            self.ocr_running = True
             roi_top = frame[0:240, 0:640] 
             gray = cv2.cvtColor(roi_top, cv2.COLOR_BGR2GRAY)
             _, thresh = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
             
-            try:
-                texto_detectado = pytesseract.image_to_string(thresh, config='--psm 11').strip().upper()
-                
-                if "FIN" in texto_detectado:
-                    msg_fin = String()
-                    msg_fin.data = "fin,320,negro,N/A" 
-                    self.publisher_.publish(msg_fin)
-                    cv2.putText(frame, "LETRERO FIN ENCONTRADO", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3)
-            except Exception:
-                pass 
+            threading.Thread(target=self.run_ocr, args=(thresh,), daemon=True).start()
 
         # =======================================================
         # DETECCIÓN DE ROCAS POR COLOR
@@ -78,6 +84,7 @@ class VisionNode(Node):
             if cv2.contourArea(largest_gray) > 5000:
                 x, y, w, h = cv2.boundingRect(largest_gray)
                 cx = int(x + w/2)
+                cy = int(y + h/2)
                 
                 altura_estimada_mm = int(1000 - (y * 2)) 
                 
@@ -154,6 +161,25 @@ class VisionNode(Node):
                         if switches_detected >= 2:
                             break
 
+        # =======================================================
+        # DETECCIÓN DE CONTENEDOR BLANCO (INICIO)
+        # =======================================================
+        mask_white = cv2.inRange(hsv, np.array([0, 0, 200]), np.array([180, 50, 255]))
+        contours_white, _ = cv2.findContours(mask_white, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        
+        if contours_white:
+            largest_white = max(contours_white, key=cv2.contourArea)
+            if cv2.contourArea(largest_white) > 3000:
+                x_w, y_w, w_w, h_w = cv2.boundingRect(largest_white)
+                cx_w = int(x_w + w_w/2)
+                
+                msg_inicio = String()
+                msg_inicio.data = f"inicio,{cx_w}"
+                self.publisher_.publish(msg_inicio)
+                
+                cv2.rectangle(frame, (x_w,y_w), (x_w+w_w,y_w+h_w), (255,255,255), 2)
+                cv2.putText(frame, "INICIO", (x_w,y_w-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+
         # Mostrar imagen
         try:
             cv2.imshow("Vision - Fat Rat", frame)
@@ -173,6 +199,7 @@ class VisionNode(Node):
         if area > 500:
             x, y, w, h = cv2.boundingRect(largest_contour)
             cx = int(x + w/2)
+            cy = int(y + h/2)
 
             # ============================
             # TAMAÑO
@@ -216,7 +243,7 @@ class VisionNode(Node):
             # PUBLICACIÓN
             # ============================
             msg = String()
-            msg.data = f"roca,{cx},{color_name},{tamano},{textura},{forma}"
+            msg.data = f"roca,{cx},{cy},{color_name},{tamano},{textura},{forma}"
             self.publisher_.publish(msg)
 
             # Visualización
