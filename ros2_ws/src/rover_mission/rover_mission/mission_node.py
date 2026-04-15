@@ -39,6 +39,7 @@ class MissionNode(Node):
             String, '/detections', self.detection_callback, 10
         )
         self.state_sub = self.create_subscription(String, '/set_state', self.state_callback, 10)
+        self.scan_sub = self.create_subscription(LaserScan, '/scan', self.scan_callback, 10)
 
         self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
         self.arm_pub = self.create_publisher(String, '/arm_cmd', 10)
@@ -67,6 +68,8 @@ class MissionNode(Node):
         self._last_loop_time = self.get_clock().now()
 
         self.panel_height = None
+        self.inicio_cx = None
+        self.last_inicio_time = 0.0
         self._last_panel_search_log_s = 0.0
 
         self.get_logger().info("FAT RAT - Mission Node Iniciado (Modo 100% Autónomo)")
@@ -80,87 +83,90 @@ class MissionNode(Node):
         self._last_action_time_s = time.monotonic()
         self.get_logger().info(f"*** ESTADO CAMBIADO MANUALMENTE A: {self.state} ***")
 
+    def scan_callback(self, msg):
+        self.last_scan = msg
+
+    def get_lidar_distance(self, angle_rad):
+        if self.last_scan is None:
+            return None
+
+        scan = self.last_scan
+        index = int((angle_rad - scan.angle_min) / scan.angle_increment)
+        if 0 <= index < len(scan.ranges):
+            dist = scan.ranges[index]
+            if math.isfinite(dist):
+                return dist
+        return None
+
     def detection_callback(self, msg):
-        data = msg.data.split(',')
-        label = data[0]
-
-        if label == "roca" and len(data) == 6:
-            label, cx, color, tamano, textura, forma = data
-        elif label == "roca" and len(data) == 3: # Si es una detección incompleta
-            cx = int(data[1])
-            color = data[2]
-            return
-        elif label == "fin" and self.state != "return" and self.state != "celebrate_fin":
-            self.state = "celebrate_fin"
-            self.last_action_time = time.time()
-            self.get_logger().info("¡Letrero FIN detectado! Indicando visualmente (Regla 1.1).")
-        elif label == "inicio":
-            self.inicio_cx = int(data[1])
-            self.last_inicio_time = time.time()
-        elif label == "panel" and len(data) == 3:
-            self.panel_height = int(data[2])
-            # Forzar el inicio de la secuencia si estábamos explorando
-            if self.state in ["explore", "approach"]:
-                self.state = "mantenimiento"
-                self.last_action_time = time.time()
-                self.targets.clear() # Limpiar objetivos de rocas
-                self.get_logger().info("¡Panel detectado! Iniciando secuencia de mantenimiento.")
-
-        elif label == "control" and len(data) == 4:
-            tipo_ctrl = data[1]
-            cx_ctrl = int(data[2])
-            estado_ctrl = data[3] 
-            self.controles_detectados.append({"tipo": tipo_ctrl, "cx": cx_ctrl, "estado": estado_ctrl})
-
-        if label != "roca":
-            return
-
-        cx = int(cx)
-        width = 640
-        fov = 60.0
-        angle = (cx - width/2) * (fov / width)
-        angle_rad = math.radians(angle)
-
-        distance = self.get_lidar_distance(angle_rad)
-
-        if distance is None or distance > 3.0:
-            return
-
-        self.last_detection = msg.data
-        self._last_detection_time_s = time.monotonic()
-
         data_parts = [p.strip() for p in msg.data.split(',') if p.strip()]
         if not data_parts:
             return
 
         label = data_parts[0].lower()
+        now_s = time.monotonic()
 
-        if label == 'persona':
-            self.state = 'emergency_stop'
-            self._last_action_time_s = time.monotonic()
+        if label == "persona":
+            self.state = "emergency_stop"
+            self._last_action_time_s = now_s
             return
 
-        if label == 'fin' or 'fin' in msg.data.lower():
-            self.get_logger().info("FIN detectado → Iniciando retorno a la base")
-            self.state = "return"
-            self._last_action_time_s = time.monotonic()
+        if label == "fin":
+            if self.state not in ["return", "celebrate_fin"]:
+                self.state = "celebrate_fin"
+                self._last_action_time_s = now_s
+                self.get_logger().info("¡Letrero FIN detectado! Indicando visualmente.")
             return
 
-        if label == 'panel' and len(data_parts) >= 3:
+        if label == "inicio" and len(data_parts) >= 2:
+            try:
+                self.inicio_cx = int(data_parts[1])
+                self.last_inicio_time = now_s
+            except ValueError:
+                pass
+            return
+
+        if label == "panel" and len(data_parts) >= 3:
             try:
                 self.panel_height = int(data_parts[2])
             except ValueError:
                 self.panel_height = None
+            if self.state in ["explore", "approach"]:
+                self.state = "mantenimiento"
+                self._last_action_time_s = now_s
+                self.targets.clear()
+                self.get_logger().info("¡Panel detectado! Iniciando secuencia de mantenimiento.")
             return
 
-        if label == 'roca' and len(data_parts) >= 2:
+        if label == "control" and len(data_parts) >= 4:
             try:
-                cx = int(data_parts[1])
+                cx_ctrl = int(data_parts[2])
             except ValueError:
-                return
-            self.targets.append(cx)
-            if len(self.targets) > self._max_targets:
-                self.targets.pop(0)
+                cx_ctrl = 0
+            self.controles_detectados.append({"tipo": data_parts[1], "cx": cx_ctrl, "estado": data_parts[3]})
+            return
+
+        if label != "roca" or len(data_parts) < 2:
+            return
+
+        try:
+            cx = int(data_parts[1])
+        except ValueError:
+            return
+
+        width = float(self._image_width_px)
+        fov = 60.0
+        angle = (cx - width / 2.0) * (fov / width)
+        angle_rad = math.radians(angle)
+        distance = self.get_lidar_distance(angle_rad)
+        if distance is not None and distance > 3.0:
+            return
+
+        self.last_detection = msg.data
+        self._last_detection_time_s = now_s
+        self.targets.append(cx)
+        if len(self.targets) > self._max_targets:
+            self.targets.pop(0)
 
     def update_pose(self, linear, angular, dt):
         self.theta += angular * dt
@@ -235,9 +241,9 @@ class MissionNode(Node):
 
             if tiempo_recoleccion < 0.5:
                 self.arm_pub.publish(String(data="ARM:DEPLOY"))
-            elif 2.0 < t_col < 2.5: 
+            elif 2.0 < tiempo_recoleccion < 2.5:
                 self.arm_pub.publish(String(data="ARM:STOW"))
-            elif t_col > 4.0:
+            elif tiempo_recoleccion > 4.0:
                 self.collected_rocks += 1
                 self.get_logger().info(
                     f"Roca recolectada ({self.collected_rocks}/{self.max_rocks})"
@@ -256,7 +262,7 @@ class MissionNode(Node):
             
             # Navegar ciegamente a odometría no basta por la arena.
             # Usar contenedor visual si está cerca (Regla de contenedor base).
-            if dist <= 1.5 and hasattr(self, 'inicio_cx') and self.inicio_cx is not None and now - self.last_inicio_time < 1.0:
+            if dist <= 1.5 and self.inicio_cx is not None and now_s - self.last_inicio_time < 1.0:
                 error = self.inicio_cx - 320
                 if dist > 0.4:
                     msg.linear.x = 0.15
@@ -264,7 +270,7 @@ class MissionNode(Node):
                 else:
                     self.arm_pub.publish(String(data="ARM:SET:1,800"))
                     self.state = "deposit"
-                    self.last_action_time = now
+                    self._last_action_time_s = now_s
             else:
                 self.state = "deposit"
                 self._last_action_time_s = now_s
@@ -289,9 +295,9 @@ class MissionNode(Node):
             msg.angular.z = 0.6
             
             # Escapar por 2 segundos y luego volver a explorar
-            if now - self.last_action_time > 2.0:
+            if now_s - self._last_action_time_s > 2.0:
                 self.state = "explore"
-                self.last_action_time = now
+                self._last_action_time_s = now_s
 
         elif self.state == "mantenimiento":
             msg.linear.x = 0.0
@@ -316,8 +322,7 @@ class MissionNode(Node):
                 self.get_logger().info("Secuencia finalizada.")
                 self.arm_pub.publish(String(data="ARM:HOME"))
                 self.state = "explore" # O finished, según las reglas del torneo
-                self.last_action_time = now
-                del self.arm_sequence_started # Limpiamos para el futuro
+                self._last_action_time_s = now_s
                 
         elif self.state == "finished":
             msg.linear.x = 0.0
