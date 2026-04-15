@@ -8,12 +8,13 @@ import time
 class HardwareBridge(Node):
     def __init__(self):
         super().__init__('hardware_bridge')
+        self._last_serial_error_log = 0.0
         try:
             self.ser = serial.Serial('/dev/rover_esp32', 115200, timeout=0.05)
             self.get_logger().info("Conectado a la ESP32 (Motores + Servos + IMU)")
-        except:
+        except Exception:
             self.ser = None
-            self.get_logger().warn("ESP32 no detectada")
+            self.get_logger().warning("ESP32 no detectada", exc_info=True)
 
         self.cmd_sub = self.create_subscription(Twist, '/cmd_vel', self.cmd_callback, 10)
         self.arm_sub = self.create_subscription(String, '/arm_cmd', self.arm_callback, 10)
@@ -37,8 +38,11 @@ class HardwareBridge(Node):
     def read_serial(self):
         if not self.ser: return
         try:
-            while self.ser.in_waiting > 0:
-                line = self.ser.readline().decode('utf-8').strip()
+            max_lines = 50
+            lines_read = 0
+            while self.ser.in_waiting > 0 and lines_read < max_lines:
+                lines_read += 1
+                line = self.ser.readline().decode('utf-8', errors='ignore').strip()
                 if line.startswith("I,"):
                     parts = line.split(',')
                     if len(parts) >= 3:
@@ -50,8 +54,11 @@ class HardwareBridge(Node):
                         msg_peso = String()
                         msg_peso.data = str(peso)
                         self.weight_pub.publish(msg_peso)
-        except Exception as e:
-            pass
+        except Exception:
+            now = time.monotonic()
+            if now - self._last_serial_error_log > 2.0:
+                self.get_logger().warning("Error leyendo UART", exc_info=True)
+                self._last_serial_error_log = now
 
     def analyze_terrain(self, pitch, roll):
         terreno = None
@@ -81,8 +88,11 @@ class HardwareBridge(Node):
         if self.ser:
             try:
                 self.ser.write(data.encode())
-            except Exception as e:
-                pass
+            except Exception:
+                now = time.monotonic()
+                if now - self._last_serial_error_log > 2.0:
+                    self.get_logger().warning("Error escribiendo UART", exc_info=True)
+                    self._last_serial_error_log = now
 
     def destroy_node(self):
         if self.ser: self.ser.close()

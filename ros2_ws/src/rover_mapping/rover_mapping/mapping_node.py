@@ -281,14 +281,18 @@ class MappingNode(Node):
         self.terrain_marker_pub.publish(terr_array)
 
     def destroy_node(self):
-        with open("mapa_lunar_oficial.txt", "w") as f:
-            f.write("--- INVENTARIO DE ROCAS ---\n")
-            for rock in self.map_rocks:
-                f.write(str(rock) + "\n")
+        try:
+            with open("mapa_lunar_oficial.txt", "w", encoding="utf-8") as f:
+                f.write("--- INVENTARIO DE ROCAS ---\n")
+                for rock in self.map_rocks:
+                    f.write(str(rock) + "\n")
 
-            f.write("\n--- ACCIDENTES GEOGRAFICOS ---\n")
-            for terr in self.map_terrain:
-                f.write(str(terr) + "\n")
+                f.write("\n--- ACCIDENTES GEOGRAFICOS ---\n")
+                for terr in self.map_terrain:
+                    f.write(str(terr) + "\n")
+            self.get_logger().info("Mapa exportado a mapa_lunar_oficial.txt")
+        except Exception:
+            self.get_logger().warning("No se pudo exportar mapa_lunar_oficial.txt", exc_info=True)
 
         super().destroy_node()
 

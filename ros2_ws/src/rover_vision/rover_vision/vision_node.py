@@ -21,6 +21,7 @@ class VisionNode(Node):
 
         self.frame_count = 0
         self.ocr_running = False
+        self._ocr_lock = threading.Lock()
 
         if not self.cap.isOpened():
             self.get_logger().error("No se pudo abrir la cámara")
@@ -37,7 +38,8 @@ class VisionNode(Node):
         except Exception:
             pass 
         finally:
-            self.ocr_running = False
+            with self._ocr_lock:
+                self.ocr_running = False
 
     def process_frame(self):
         ret, frame = self.cap.read()
@@ -49,8 +51,14 @@ class VisionNode(Node):
         # =======================================================
         # OCR (Letrero FIN) - Se ejecuta asíncronamente
         # =======================================================
-        if self.frame_count % 15 == 0 and not self.ocr_running:
-            self.ocr_running = True
+        start_ocr = False
+        if self.frame_count % 15 == 0:
+            with self._ocr_lock:
+                if not self.ocr_running:
+                    self.ocr_running = True
+                    start_ocr = True
+
+        if start_ocr:
             roi_top = frame[0:240, 0:640] 
             gray = cv2.cvtColor(roi_top, cv2.COLOR_BGR2GRAY)
             _, thresh = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
@@ -250,6 +258,18 @@ class VisionNode(Node):
             cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 2)
             cv2.putText(frame, f"{color_name} {forma}", (x,y-10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+
+    def destroy_node(self):
+        try:
+            if self.cap:
+                self.cap.release()
+        except Exception:
+            pass
+        try:
+            cv2.destroyAllWindows()
+        except Exception:
+            pass
+        super().destroy_node()
 
 def main(args=None):
     rclpy.init(args=args)

@@ -45,7 +45,6 @@ class MissionNode(Node):
         self.theta = 0.0
         self.home_x = 0.0
         self.home_y = 0.0
-        self.last_action_time = time.time()
         
         self.inicio_cx = None
         self.last_inicio_time = 0
@@ -187,15 +186,16 @@ class MissionNode(Node):
 
     def loop(self):
         msg = Twist()
+        now = time.time()
 
-        if time.time() - self.mission_start > self.max_mission_time:
+        if now - self.mission_start > self.max_mission_time:
             self.state = "return"
         
-        if time.time() - self.last_action_time > 12 and self.state in ["explore", "approach"]:
+        if now - self.last_action_time > 12 and self.state in ["explore", "approach"]:
             self.state = "explore"
             self.targets.clear()
             self.current_target = None
-            self.last_action_time = time.time()
+            self.last_action_time = now
 
         # --- MÁQUINA DE ESTADOS ---
         if self.state == "explore":
@@ -211,10 +211,10 @@ class MissionNode(Node):
                 CENTER_X = 320
                 self.current_target = min(self.targets, key=lambda x: abs(x - CENTER_X))
                 self.state = "approach"
-                self.last_action_time = time.time()
+                self.last_action_time = now
 
         elif self.state == "approach":
-            if time.time() - self.last_action_time > 5.0:
+            if now - self.last_action_time > 5.0:
                 self.state = "explore"
                 return
 
@@ -225,9 +225,9 @@ class MissionNode(Node):
             if abs(error) < 15:
                 msg.linear.x = linear_speed
                 msg.angular.z = 0.0
-                if time.time() - self.last_action_time > 1.8:
+                if now - self.last_action_time > 1.8:
                     self.state = "collect"
-                    self.last_action_time = time.time()
+                    self.last_action_time = now
             else:
                 msg.linear.x = 0.0
                 msg.angular.z = max(min(-error / 140.0, 0.5), -0.5)
@@ -235,7 +235,7 @@ class MissionNode(Node):
         elif self.state == "collect":
             msg.linear.x = 0.0
             msg.angular.z = 0.0
-            t_col = time.time() - self.last_action_time
+            t_col = now - self.last_action_time
             if t_col < 0.5: 
                 self.arm_pub.publish(String(data="ARM:DEPLOY"))
             elif 2.0 < t_col < 2.5: 
@@ -244,15 +244,15 @@ class MissionNode(Node):
                 self.collected_rocks += 1
                 self.targets.clear()
                 self.state = "explore" 
-                self.last_action_time = time.time()
+                self.last_action_time = now
 
         elif self.state == "celebrate_fin":
             # Demostración requerida por Regla 1.1 "siempre mostrando o indicando que ya lo ha localizado"
             msg.linear.x = 0.0
             msg.angular.z = 0.8 # Giro de 3 segundos sobre su eje para indicar a los jueces
-            if time.time() - self.last_action_time > 3.0:
+            if now - self.last_action_time > 3.0:
                 self.state = "return"
-                self.last_action_time = time.time()
+                self.last_action_time = now
                 self.get_logger().info("Regresando a base dictado por final de festejo.")
 
         elif self.state == "return":
@@ -261,7 +261,7 @@ class MissionNode(Node):
             
             # Navegar ciegamente a odometría no basta por la arena.
             # Usar contenedor visual si está cerca (Regla de contenedor base).
-            if dist <= 1.5 and hasattr(self, 'inicio_cx') and self.inicio_cx is not None and time.time() - self.last_inicio_time < 1.0:
+            if dist <= 1.5 and hasattr(self, 'inicio_cx') and self.inicio_cx is not None and now - self.last_inicio_time < 1.0:
                 error = self.inicio_cx - 320
                 if dist > 0.4:
                     msg.linear.x = 0.15
@@ -269,7 +269,7 @@ class MissionNode(Node):
                 else:
                     self.arm_pub.publish(String(data="ARM:SET:1,800"))
                     self.state = "deposit"
-                    self.last_action_time = time.time()
+                    self.last_action_time = now
             else:
                 error_a = math.atan2(dy, dx) - self.theta
                 error_a = math.atan2(math.sin(error_a), math.cos(error_a))
@@ -280,12 +280,12 @@ class MissionNode(Node):
                 else:
                     self.arm_pub.publish(String(data="ARM:SET:1,800"))
                     self.state = "deposit"
-                    self.last_action_time = time.time()
+                    self.last_action_time = now
 
         elif self.state == "deposit":
             msg.linear.x = 0.0
             msg.angular.z = 0.0
-            t_dep = time.time() - self.last_action_time
+            t_dep = now - self.last_action_time
             if t_dep < 1.0:
                 self.arm_pub.publish(String(data="ARM:SET:1,800")) # Brazo arriba esquivando pared 20cm
                 self.arm_pub.publish(String(data="ARM:SET:2,200"))
@@ -305,22 +305,22 @@ class MissionNode(Node):
             msg.angular.z = 0.6
             
             # Escapar por 2 segundos y luego volver a explorar
-            if time.time() - self.last_action_time > 2.0:
+            if now - self.last_action_time > 2.0:
                 self.state = "explore"
-                self.last_action_time = time.time()
+                self.last_action_time = now
 
         elif self.state == "mantenimiento":
             msg.linear.x = 0.0
             msg.angular.z = 0.0
             
-            t_mant = time.time() - self.last_action_time
+            t_mant = now - self.last_action_time
             
             # --- TIMEOUT DE RESCATE ---
             # Si lleva más de 12 segundos atascado en este estado sin avanzar
             if t_mant > 12.0 and (self.panel_height is None or len(self.controles_detectados) < 4):
                 self.get_logger().warn("Timeout de Mantenimiento: No vi suficientes controles. Abortando cápsula.")
                 self.state = "explore"
-                self.last_action_time = time.time()
+                self.last_action_time = now
                 return
 
             # Esperar a tener el panel y al menos 4 controles detectados
@@ -340,9 +340,9 @@ class MissionNode(Node):
             # REINICIO DEL TIEMPO PARA LA SECUENCIA DE BRAZO
             # Esto es vital para que la secuencia empiece desde t=0 una vez que encontró todo
             if not hasattr(self, 'arm_sequence_started'):
-                self.arm_sequence_started = time.time()
+                self.arm_sequence_started = now
                 
-            t_seq = time.time() - self.arm_sequence_started
+            t_seq = now - self.arm_sequence_started
 
             # Aquí ya usas la altura dinámica bz basada en lo que vio la cámara
             if t_seq < 1.0: self.send_arm_to_height(bz) # Posición de espera frente al panel
@@ -353,7 +353,7 @@ class MissionNode(Node):
             elif 15.0 < t_seq < 15.5:
                 self.arm_pub.publish(String(data="ARM:HOME"))
                 self.state = "explore" # O finished, según las reglas del torneo
-                self.last_action_time = time.time()
+                self.last_action_time = now
                 del self.arm_sequence_started # Limpiamos para el futuro
                 
         elif self.state == "finished":
