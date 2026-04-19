@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'pyserial'],
     zip_safe=True,
     maintainer='fatrat',
     maintainer_email='fatrat@todo.todo',
@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-	    'rover_driver = rover_control1.rover_driver:main',
+            'rover_driver = rover_control1.rover_driver:main',
         ],
     },
 )
